@@ -9,6 +9,7 @@ const Home = () => {
         } else {
             return navigate('/login')
         }
+        // eslint-disable-next-line
     }, [])
 
 

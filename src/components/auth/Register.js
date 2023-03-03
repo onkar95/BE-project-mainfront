@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -10,10 +11,9 @@ const Register = () => {
     const [Email, setEmail] = useState()
     const [Password, setPassword] = useState()
     const [Role, setRole] = useState()
-    const [alignment, setAlignment] = useState('');
 
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
+    const handleChange = (event, value) => {
+        setRole(value)
     };
     const handelSubmit = () => {
         const dataObjs = {
@@ -56,15 +56,15 @@ const Register = () => {
                         <label className='label' style={{ marginBottom: "8px" }} >What Are You Looking For?</label>
                         <ToggleButtonGroup
                             color="primary"
-                            value={alignment}
+                            value={Role}
                             exclusive
                             onChange={handleChange}
                             aria-label="Platform"
                             fullWidth
                             style={{ width: "98%" }}
                         >
-                            <ToggleButton className='b1 gp_btn' value="web" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking for Job</ToggleButton>
-                            <ToggleButton className='b2 gp_btn' value="android" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking to heir</ToggleButton>
+                            <ToggleButton className='b1 gp_btn' value="candidate" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking for Job</ToggleButton>
+                            <ToggleButton className='b2 gp_btn' value="company" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking to heir</ToggleButton>
                         </ToggleButtonGroup>
 
                         {/* <div className='btn_group_btns'>
