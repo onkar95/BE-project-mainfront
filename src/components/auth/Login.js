@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Auth.css'
 import axios from 'axios'
 import { BASE_URL } from '../util'
-import login from "../../img/login.png"
+import login from "../../Assets/login.png"
 
 const Login = () => {
     const [Email, setEmail] = useState()

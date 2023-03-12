@@ -1,0 +1,193 @@
+.skills,
+.education,
+.experience,
+.preferences {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 60%;
+    background: #FAEDFA;
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
+
+.fields {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.fields p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    /* or 100% */
+
+    display: flex;
+    align-items: center;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000000;
+}
+
+.selected_skills {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.selected_val {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+
+}
+
+.selected_val p,
+.selected_roles_val p {
+    margin: 0;
+}
+
+.selected_val img,
+.selected_roles_val img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 3px 0px 2px 10px;
+}
+
+
+.skills_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 50px 10px 20px 10px;
+}
+
+.btn_1 {
+    box-sizing: border-box;
+
+    /* position: absolute; */
+    width: 118px;
+    height: 40px;
+    left: 0px;
+    color: #f9a826;
+    font-family: "Poppins";
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+}
+
+.btn_2 {
+    box-sizing: border-box;
+
+    /* position: absolute; */
+    width: 118px;
+    height: 40px;
+    left: 138px;
+    font-family: "Poppins";
+    color: #ffffff;
+    background: #f9a826;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+}
+
+.btn_1:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+    width: 80%;
+    line-height: 40px;
+    font-size: 16px;
+    outline-color: #4e8be7;
+    background-color: rgba(25, 118, 210, 0.08);
+    border: none;
+    margin: 8px 0;
+    border-radius: 10px;
+    padding: 0 20px;
+
+    background: #F1F1F1;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+    outline: none;
+}
+
+.label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.date_inp {
+    display: flex;
+    gap: 10px;
+    width: 85%;
+
+}
+
+.education,
+.experience {
+    padding: 50px;
+}
+
+.experience {
+    background-color: #FAEFDD;
+}
+
+.education {
+    background-color: #FAEDED;
+}
+
+.preferences {
+    background-color: #EBF8E0;
+}
+
+.form_itm {
+    display: flex;
+    flex-direction: column;
+}
+
+.edu_btn {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    gap: 10px;
+    margin: 50px 10px 20px 10px;
+
+}
+
+.selected_roles {
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.selected_roles_val {
+    padding: 10px;
+
+    background: #D5E1CB;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}

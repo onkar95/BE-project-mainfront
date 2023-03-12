@@ -1,0 +1,23 @@
+.option {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 40px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    width: 300px;
+    /* height: 200px; */
+}
+
+.option_val {
+    height: 200px;
+}

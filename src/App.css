@@ -1,0 +1,13 @@
+* {
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.components {
+    display: flex;
+}

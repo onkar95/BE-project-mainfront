@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import register from '../../img/register.png'
+import register from '../../Assets/register.png'
 import { BASE_URL } from '../util'
 import { ToggleButtonGroup, ToggleButton } from '@mui/material'
 

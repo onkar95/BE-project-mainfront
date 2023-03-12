@@ -1,0 +1,23 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 50px;
+}
+
+.profile_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-bottom: 10px;
+
+}
+
+.profileCompo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
