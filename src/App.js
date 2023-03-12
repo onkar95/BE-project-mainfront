@@ -7,6 +7,7 @@ import Header from './components/navbar/Header';
 import Sidebar from './components/navbar/Sidebar';
 import Profile from './components/profile/Profile';
 import ProfileContext, { ProfileDataProvider } from './context/profileContext';
+import Message from './components/Messages/Message';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/messages" element={<Message />} />
                 </Routes>
               </div>
             </div>
