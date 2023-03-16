@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import './message.css'
+import girl_profile from '../../Assets/girl_profile.jpg'
+import boy_profile from '../../Assets/boy_profile.jpg'
 import profile from '../../Assets/icons/profileicon.png'
+
+
 import { members, messages } from '../data/message'
 
 
@@ -23,7 +27,7 @@ const Message = () => {
                         members.map((val, key) => (
                             <div className='member'>
                                 <img src={profile} alt="profile" />
-                                <h3>{val.name}</h3>
+                                <p>{val.name}</p>
                             </div>
                         ))
                     }
@@ -34,7 +38,7 @@ const Message = () => {
 
                 {messages.map((val, key) => (
                     <div className={val.from === 1 ? 'my_message msg' : 'others_msg msg'}>
-                        <img src={profile} alt="profile" />
+                        <img src={val.from === 1 ? girl_profile : boy_profile} alt="profile" />
                         <h4>{val.message}</h4>
                     </div>
                 ))

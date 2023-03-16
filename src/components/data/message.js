@@ -21,31 +21,31 @@ export const messages = [
     {
         from: 1,
         to: "you",
-        message: " kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf  kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf  kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf",
+        message: "Bro tya kaalchya mansala access de github cha, tyane email takla ahe bagh. Ani jamla tar tyala fakt view access de, nahitar toh kahi tari code lihel ani aplyala te kalnarach nahi",
         id: 1
     },
     {
-        from: 1,
-        to: "you",
+        from: 2,
+        to: "me",
         message: "hi",
         id: 2
     },
     {
-        from: 2,
+        from: 1,
         to: "you",
-        message: " kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf  kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf  kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf kdsjhflsdkhklj kjdhfglk jdslkjfglkj sdlfkh gj lsdkf",
+        message: "bhai google meet link banav ani mala patha",
         id: 3
     },
     {
-        from: 3,
+        from: 2,
         to: "you",
-        message: "hi",
+        message: "please",
         id: 4
     },
     {
         from: 1,
-        to: "you",
-        message: "hi",
+        to: "me",
+        message: "okay",
         id: 5
     },
 ]
