@@ -49,8 +49,8 @@ const Education = () => {
                 <input className='input' type='text' value={Description} onChange={((a) => setDescription(a.target.value))} />
             </div> */}
             <div className='edu_btn'>
-                <button className='btn_1' onClick={() => handelSave()} >add</button>
-                <button className='btn_2'>add</button>
+                <button className='btn_1'>Skip</button>
+                <button className='btn_2' onClick={() => handelSave()}>Save</button>
             </div>
         </div>
     )

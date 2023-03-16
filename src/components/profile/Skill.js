@@ -33,7 +33,7 @@ const Skill = () => {
             </div>
             {selectedSkills.length !== 0 ? <div className='selected_skills'>
                 {selectedSkills?.map((val) => (
-                    <div className='selected_val'>
+                    <div className='selected_roles_val'>
                         <p>{val} </p>
                         <img src={close} alt='loading' onClick={() => handelRemove(val, 'skills')} />
                     </div>
@@ -57,8 +57,8 @@ const Skill = () => {
                 ))}
             </div>
             <div className='skills_btn'>
-                <button className='btn_1' onClick={() => handelSave()}>Save</button>
-                <button className='btn_2'>Skip</button>
+            <button className='btn_1'>Skip</button>
+                <button className='btn_2' onClick={() => handelSave()}>Save</button>
             </div>
         </div>
     )
