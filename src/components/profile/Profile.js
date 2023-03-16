@@ -4,12 +4,14 @@ import Experience from './Experience'
 import Preferences from './Preferences'
 import Skill from './Skill'
 import './profile.css'
+import { useContext } from 'react'
+import ProfileContext from '../../context/profileContext'
 
 
 const Profile = () => {
-    const [selected, setselected] = useState(0);
+    const {selected, setSelected} = useContext(ProfileContext);
     const handelClick = (val) => {
-        setselected(val)
+        setSelected(val)
     }
     return (
         <div className='profile'>

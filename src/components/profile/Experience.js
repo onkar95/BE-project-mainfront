@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useContext } from "react";
+import ProfileContext from "../../context/profileContext";
 import { BASE_URL } from "../util";
 import "./profilesections.css";
 
@@ -11,6 +13,12 @@ const Experience = () => {
   const [DateFrom, setDateFrom] = useState(dateToday);
   const [DateTo, setDateTo] = useState(dateToday);
   const [Description, setDescription] = useState("");
+
+  const { setSelected } = useContext(ProfileContext);
+
+  const handleSkip = () => {
+    setSelected(2);
+  };
 
   const handelSave = () => {
     const dataobj = {
@@ -77,8 +85,12 @@ const Experience = () => {
         />
       </div>
       <div className="edu_btn">
-        <button className="btn_1">Skip</button>
-        <button className="btn_2" onClick={() => handelSave()}>Save</button>
+        <button className="btn_1" onClick={() => handleSkip()}>
+          Skip
+        </button>
+        <button className="btn_2" onClick={() => handelSave()}>
+          Save
+        </button>
       </div>
     </div>
   );

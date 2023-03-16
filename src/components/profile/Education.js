@@ -3,14 +3,20 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { BASE_URL } from '../util';
 
+import { useContext } from 'react';
+import ProfileContext from '../../context/profileContext';
+
 const Education = () => {
     const dateToday = new Date().toISOString().slice(0, 10);
     const [Degree, setDegree] = useState('')
     const [College, setCollege] = useState('')
     const [DateFrom, setDateFrom] = useState(new Date().toISOString().slice(0, 10))
     const [DateTo, setDateTo] = useState(new Date().toISOString().slice(0, 10))
+    const { setSelected} = useContext(ProfileContext);
     
-
+    const handleSkip = () => {
+        setSelected(3);
+    }
 
     const handelSave = () => {
         const dataobj = {
@@ -49,7 +55,7 @@ const Education = () => {
                 <input className='input' type='text' value={Description} onChange={((a) => setDescription(a.target.value))} />
             </div> */}
             <div className='edu_btn'>
-                <button className='btn_1'>Skip</button>
+                <button className='btn_1' onClick={() => handleSkip()}>Skip</button>
                 <button className='btn_2' onClick={() => handelSave()}>Save</button>
             </div>
         </div>

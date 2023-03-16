@@ -13,6 +13,8 @@ export const ProfileDataProvider = ({ children }) => {
     const [SalaryRange, setSalaryRange] = useState('')
     const [TypeOfJobs, setTypeOfJobs] = useState('')
 
+    const [selected, setSelected] = useState(0);
+
 
     const handelRemove = (val, removefor) => {
 
@@ -87,7 +89,8 @@ export const ProfileDataProvider = ({ children }) => {
             Locations, setLocations,
             remoteOffice, setremoteOffice,
             SalaryRange, setSalaryRange,
-            TypeOfJobs, setTypeOfJobs
+            TypeOfJobs, setTypeOfJobs,
+            selected, setSelected,
         }}>
             {children}
         </ProfileContext.Provider >
