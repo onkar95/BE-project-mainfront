@@ -1,8 +1,7 @@
 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Dropdown from '../elements/Dropdown'
 import './profilesections.css'
-import close from '../../Assets/icons/close.png'
 import ProfileContext from '../../context/profileContext'
 import { EmployeeSizeData, LocationsData, remoteOfficeData, SalaryRangeData, TypeOfJobsData } from '../data/DropdownData'
 import axios from 'axios'

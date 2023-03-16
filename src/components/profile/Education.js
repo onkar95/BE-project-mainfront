@@ -9,7 +9,7 @@ const Education = () => {
     const [College, setCollege] = useState('')
     const [DateFrom, setDateFrom] = useState(new Date().toISOString().slice(0, 10))
     const [DateTo, setDateTo] = useState(new Date().toISOString().slice(0, 10))
-    const [Description, setDescription] = useState('')
+    
 
 
     const handelSave = () => {

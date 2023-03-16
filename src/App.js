@@ -6,7 +6,7 @@ import './App.css'
 import Header from './components/navbar/Header';
 import Sidebar from './components/navbar/Sidebar';
 import Profile from './components/profile/Profile';
-import ProfileContext, { ProfileDataProvider } from './context/profileContext';
+import { ProfileDataProvider } from './context/profileContext';
 import Message from './components/Messages/Message';
 
 

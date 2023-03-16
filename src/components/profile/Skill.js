@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Dropdown from '../elements/Dropdown'
 import './profilesections.css'
 import close from '../../Assets/icons/close.png'
@@ -35,7 +35,7 @@ const Skill = () => {
                 {selectedSkills?.map((val) => (
                     <div className='selected_val'>
                         <p>{val} </p>
-                        <img src={close} onClick={() => handelRemove(val, 'skills')} />
+                        <img src={close} alt='loading' onClick={() => handelRemove(val, 'skills')} />
                     </div>
                 ))}
             </div> : ""}
@@ -52,7 +52,7 @@ const Skill = () => {
                 {selectedRoles?.map((val) => (
                     <div className='selected_roles_val'>
                         <p>{val} </p>
-                        <img src={close} onClick={() => handelRemove(val, 'Roles')} />
+                        <img src={close} alt='loading' onClick={() => handelRemove(val, 'Roles')} />
                     </div>
                 ))}
             </div>

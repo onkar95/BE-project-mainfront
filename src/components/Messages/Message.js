@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './message.css'
 import profile from '../../Assets/icons/profileicon.png'
-import { members, messages, user } from '../data/message'
+import { members, messages } from '../data/message'
 
 
 const Message = () => {

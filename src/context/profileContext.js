@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const ProfileContext = createContext(null);
 
@@ -42,10 +41,14 @@ export const ProfileDataProvider = ({ children }) => {
         let value = val.target.value
         switch (type) {
             case 'skills':
-                setSelectedSkills([...selectedSkills, value]);
+                if(!selectedSkills.includes(value)){
+                    setSelectedSkills([...selectedSkills, value]);
+                }
                 break;
             case 'Roles':
-                setSelectedRoles([...selectedRoles, value]);
+                if(!selectedRoles.includes(value)){
+                    setSelectedRoles([...selectedRoles, value]);
+                }
                 break;
             case 'Role':
                 setPrimaryRole(value)
