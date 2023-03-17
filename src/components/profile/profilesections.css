@@ -144,14 +144,14 @@
 
 }
 
-.education {
+.education,
+.experience {
     padding: 50px;
 }
 
 .experience {
     background-color: #FAEFDD;
     margin-bottom: 50px;
-    padding: 20px 20px;
 }
 
 .education {
