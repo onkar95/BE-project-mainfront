@@ -9,7 +9,7 @@ import ProfileContext from '../../context/profileContext'
 
 
 const Profile = () => {
-    const {selected, setSelected} = useContext(ProfileContext);
+    const { selected, setSelected } = useContext(ProfileContext);
     const handelClick = (val) => {
         setSelected(val)
     }

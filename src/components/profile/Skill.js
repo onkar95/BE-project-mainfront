@@ -9,7 +9,7 @@ import { BASE_URL } from "../util";
 
 const Skill = () => {
   // EmployeeSize, Locations, remoteOffice, SalaryRange, TypeOfJobs
-  const { selectedSkills, selectedRoles, handelRemove, PrimaryRole } =
+  const { selectedSkills, selectedRoles, handelRemove, PrimaryRole, setSelectedSkills, setSelectedRoles } =
     useContext(ProfileContext);
   const { setSelected } = useContext(ProfileContext);
 
@@ -29,6 +29,9 @@ const Skill = () => {
       .post(`${BASE_URL}/Skills`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err.message));
+    alert(JSON.stringify(dataobj))
+    setSelectedSkills([])
+    setSelectedRoles([])
   };
   return (
     <div className="skills">
