@@ -105,7 +105,8 @@
     border-radius: 5px;
 }
 
-.btn_1:hover, .btn_2:hover {
+.btn_1:hover,
+.btn_2:hover {
     transform: translateY(2px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -143,13 +144,14 @@
 
 }
 
-.education,
-.experience {
+.education {
     padding: 50px;
 }
 
 .experience {
     background-color: #FAEFDD;
+    margin-bottom: 50px;
+    padding: 20px 20px;
 }
 
 .education {
@@ -158,6 +160,7 @@
 
 .preferences {
     background-color: #EBF8E0;
+    margin-bottom: 50px;
 }
 
 .form_itm {
