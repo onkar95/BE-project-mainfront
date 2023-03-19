@@ -155,7 +155,7 @@
 
     padding: 25px;
     background-color: #FAEFDD;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .education {
@@ -166,7 +166,7 @@
 .preferences {
     padding: 10px;
     background-color: #EBF8E0;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .form_itm {

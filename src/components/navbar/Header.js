@@ -17,8 +17,8 @@ const Header = () => {
                 <img className='noti_img' src={notification} alt="notification" />
                 {false ? <img className='profile_img' src={img} alt="profile" /> :
                     <div>
-                        <button onClick={() => navigate('/login')}>signup</button>
-                        <button onClick={() => navigate('/register')}>signin</button>
+                        <button className='btn_1' onClick={() => navigate('/login')}>signup</button>
+                        {/* <button className='btn_2' onClick={() => navigate('/register')}>signin</button> */}
                     </div>
                 }
             </div>

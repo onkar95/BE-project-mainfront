@@ -15,9 +15,9 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <div className='header_sidebar'>
-        <Header />
-      </div> */}
+        <div className='header_sidebar'>
+          <Header />
+        </div>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

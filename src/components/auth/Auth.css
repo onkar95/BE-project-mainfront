@@ -7,12 +7,13 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    height: 90vh;
 }
 
 .login_info {
     /* background-color: #4e8be7; */
     width: 40%;
-    min-height: 95vh;
+    min-height: 95%;
     background-size: contain;
     background-repeat: no-repeat;
     padding: 0px 50px 0px 0px;
@@ -99,7 +100,7 @@ body {
     /* max-width: 100vw; */
     /* max-height: 100vh; */
     width: 100%;
-    height: 760px;
+    height: 100%;
 }
 
 .login_form {

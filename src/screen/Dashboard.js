@@ -25,9 +25,9 @@ const Dashboard = () => {
 
     return (
         <div className='App'>
-            <div className='header_sidebar'>
+            {/* <div className='header_sidebar'>
                 <Header />
-            </div>
+            </div> */}
             <div className='components'>
                 <Sidebar />
 
