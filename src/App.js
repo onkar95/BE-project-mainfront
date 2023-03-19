@@ -4,9 +4,7 @@ import Register from './components/auth/Register';
 import Dashboard from './screen/Dashboard';
 import './App.css'
 import Header from './components/navbar/Header';
-import Sidebar from './components/navbar/Sidebar';
 import Profile from './components/profile/Profile';
-import { ProfileDataProvider } from './context/profileContext';
 import Message from './components/Messages/Message';
 import { DashboardDataProvider } from './context/dashboardContext';
 

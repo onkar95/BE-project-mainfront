@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
 import Home from '../components/home/Home'
 import Jobs from '../components/jobs/Jobs'
 import Message from '../components/Messages/Message'
-import Header from '../components/navbar/Header'
 import Sidebar from '../components/navbar/Sidebar'
 import Profile from '../components/profile/Profile'
 import DashboardContest from '../context/dashboardContext'
@@ -12,7 +10,7 @@ import { ProfileDataProvider } from '../context/profileContext'
 const Dashboard = () => {
     const { section } = useContext(DashboardContest)
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     // useEffect(() => {
     //     if (false) {
     //         return navigate('/')

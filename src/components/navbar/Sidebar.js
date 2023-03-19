@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
 import './nav.css'
 import homeicon from '../../Assets/icons/homeicon.png'
 import profile from '../../Assets/icons/profileicon.png'
@@ -11,7 +10,6 @@ const Sidebar = () => {
 
     const { section, setSection } = useContext(DashboardContest)
 
-    const navigate = useNavigate()
 
     const handelClick = (val, route) => {
         setSection(val)
