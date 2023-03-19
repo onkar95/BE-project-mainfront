@@ -54,7 +54,7 @@ const Login = () => {
 
                     <section className='password_text'>
                         <p>Can’t remember your password? <Link to="#">reset password</Link></p>
-                        <button className='auth_button' onClick={() => handelSubmit()} >Login to Account</button>
+                        <button className='auth_button ' onClick={() => handelSubmit()} >Login to Account</button>
                     </section>
                 </div>
             </div>

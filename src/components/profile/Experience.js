@@ -82,6 +82,7 @@ const Experience = () => {
           type="text"
           value={Description}
           onChange={(a) => setDescription(a.target.value)}
+          rows={2}
         />
       </div>
       <div className="edu_btn">

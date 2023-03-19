@@ -4,11 +4,14 @@
 .preferences {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     width: 60%;
     background: #FAEDFA;
     border: 1px solid #000000;
     border-radius: 15px;
+}
+
+.skills {
+    padding: 20px;
 }
 
 .fields {
@@ -93,8 +96,6 @@
 
 .btn_2 {
     box-sizing: border-box;
-
-    /* position: absolute; */
     font-weight: 700;
     width: 118px;
     height: 40px;
@@ -129,6 +130,7 @@
     box-shadow: 4px 4px 0px #000000;
     border-radius: 5px;
     outline: none;
+    resize: none;
 }
 
 .label {
@@ -146,21 +148,23 @@
 
 }
 
-.education,
-.experience {
-    padding: 50px;
-}
 
 .experience {
+    /* align-items: center; */
+    justify-content: center;
+
+    padding: 25px;
     background-color: #FAEFDD;
     margin-bottom: 50px;
 }
 
 .education {
+    padding: 30px;
     background-color: #FAEDED;
 }
 
 .preferences {
+    padding: 10px;
     background-color: #EBF8E0;
     margin-bottom: 50px;
 }
@@ -175,7 +179,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    margin: 50px 10px 20px 10px;
+    margin: 40px 10px 0px 10px;
 
 }
 
@@ -190,7 +194,6 @@
 
 .selected_roles_val {
     padding: 10px;
-
     background: #D5E1CB;
     color: #000000;
     display: flex;

@@ -14,8 +14,9 @@
     align-items: center;
     text-align: center;
     color: #000000;
-    width: 300px;
-    /* height: 200px; */
+    width: 190px;
+    height: 60px;
+    min-width: max-content;
 }
 
 .option_val {

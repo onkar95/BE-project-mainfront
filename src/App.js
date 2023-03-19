@@ -1,42 +1,34 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Home from './screen/Home';
+import Dashboard from './screen/Dashboard';
 import './App.css'
 import Header from './components/navbar/Header';
 import Sidebar from './components/navbar/Sidebar';
 import Profile from './components/profile/Profile';
 import { ProfileDataProvider } from './context/profileContext';
 import Message from './components/Messages/Message';
+import { DashboardDataProvider } from './context/dashboardContext';
 
 
 function App() {
   return (
     <div>
       <Router>
-        {false ?
+        {/* <div className='header_sidebar'>
+        <Header />
+      </div> */}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <DashboardDataProvider>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/messages" element={<Message />} />
           </Routes>
-          :
-          <ProfileDataProvider>
-
-            <div className='App'>
-              <div className='header_sidebar'>
-                <Header />
-              </div>
-              <div className='components'>
-                <Sidebar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/messages" element={<Message />} />
-                </Routes>
-              </div>
-            </div>
-          </ProfileDataProvider>
-        }
+        </DashboardDataProvider>
       </Router>
     </div>
   );
