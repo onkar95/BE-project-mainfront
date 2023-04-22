@@ -8,7 +8,6 @@ const messageSchema = new mongoose.Schema({
     },
     message: {
         type: String,
-        required: true
     },
     to: {
         type: mongoose.Schema.Types.ObjectId,
