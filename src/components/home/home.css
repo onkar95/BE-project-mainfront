@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*-------------------- Test Card Division starts here --------------------*/
+
+.test-card-section-heading{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.test-card-container {
+  display: flex;
+  padding: 16px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.test-card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.test-card {
+  height: 275px;
+  min-width: 230px;
+  max-width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  transition: 0.25s ease-in-out;
+}
+
+.test-card:hover {
+  transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.test-card #test-card-heading {
+  height: 25%;
+  font-size: 24px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.test-card #test-card-metadata {
+  height: 15%;
+}
+
+.test-card #test-card-description {
+  margin: 0;
+  height: 40%;
+  font-style: italic; 
+  color: #666;
+}
+
+.test-card #test-card-btn-container{
+  height: 20%;
+}
+
+.test-card .test-card-btn {
+  box-sizing: border-box;
+  text-decoration: none;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    width: 120px;
+    height: 40px;
+    left: 0px;
+    color: #f9a826;
+    font-family: "Poppins";
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: 2px 2px 0px #000000;
+    border-radius: 5px;
+}
+
+.test-card .test-card-btn:hover {
+  transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*-------------------- Test Card Division ends here --------------------*/
