@@ -1,24 +1,30 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './Auth.css'
 import axios from 'axios'
 import { BASE_URL } from '../util'
 import login from "../../Assets/login.png"
+import UserContest from '../../context/userContext'
 
 const Login = () => {
     const [Email, setEmail] = useState()
     const [Password, setPassword] = useState()
+    const { user, setUser, setToken } = useContext(UserContest)
 
+    const navigate = useNavigate()
     const handelSubmit = () => {
         const dataObjs = {
-            Email,
-            Password,
+            email: Email,
+            password: Password,
         }
         console.log(dataObjs)
-        axios.post(`${BASE_URL}/login`, dataObjs)
+        if (!user) axios.post(`${BASE_URL}/auth/login`, dataObjs)
             .then((data) => {
                 console.log(data)
-                alert("registered succesfully")
+                setUser(data.data.user)
+                setToken(data.data.token)
+                localStorage.setItem('token', data.data.token)
+                navigate('/')
             })
             .catch((err) => console.log(err.message))
     }

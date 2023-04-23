@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Home from '../components/home/Home'
 import Jobs from '../components/jobs/Jobs'
 import Message from '../components/Messages/Message'
@@ -6,19 +7,22 @@ import Sidebar from '../components/navbar/Sidebar'
 import Profile from '../components/profile/Profile'
 import DashboardContest from '../context/dashboardContext'
 import { ProfileDataProvider } from '../context/profileContext'
+import UserContest from '../context/userContext'
 
 const Dashboard = () => {
     const { section } = useContext(DashboardContest)
+    const { user, Token } = useContext(UserContest)
 
-    // const navigate = useNavigate()
-    // useEffect(() => {
-    //     if (false) {
-    //         return navigate('/')
-    //     } else {
-    //         return navigate('/login')
-    //     }
-    //     // eslint-disable-next-line
-    // }, [])
+    const navigate = useNavigate()
+    console.log(user)
+    useEffect(() => {
+        if (user) {
+            return navigate('/home')
+        } else {
+
+        }
+        // eslint-disable-next-line
+    }, [])
 
 
     return (
@@ -27,12 +31,12 @@ const Dashboard = () => {
                 <Header />
             </div> */}
             <div className='components'>
-                <Sidebar />
+                {/* <Sidebar /> */}
 
-                {section === 0 ? <Home /> : ""}
+                {/* {section === 0 ? <Home /> : ""}
                 {section === 1 ? <ProfileDataProvider><Profile /></ProfileDataProvider> : ""}
                 {section === 2 ? <Jobs /> : ""}
-                {section === 3 ? <Message /> : ""}
+                {section === 3 ? <Message /> : ""} */}
 
             </div>
         </div>

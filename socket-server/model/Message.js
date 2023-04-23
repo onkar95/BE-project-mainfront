@@ -3,15 +3,16 @@ const mongoose = require('mongoose')
 const messageSchema = new mongoose.Schema({
     from: {
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
         ref: 'User'
     },
     message: {
         type: String,
+        required: true
     },
     to: {
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
         ref: 'User'
     },
     createdAt: {
@@ -20,3 +21,5 @@ const messageSchema = new mongoose.Schema({
     }
 
 })
+
+module.exports = mongoose.model('Message', messageSchema)
