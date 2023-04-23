@@ -1,9 +1,12 @@
 import React from 'react'
+import TestCardSection from './TestCardSection';
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <TestCardSection/>
+        </div>
     )
 }
 
-export default Home
+export default Home;
