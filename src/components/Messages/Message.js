@@ -4,16 +4,14 @@ import girl_profile from '../../Assets/girl_profile.jpg'
 import boy_profile from '../../Assets/boy_profile.jpg'
 import profile from '../../Assets/icons/profileicon.png'
 import { io } from "socket.io-client";
-
-import { members, messages } from '../data/message'
 import axios from 'axios'
 import { BASE_URL } from '../util'
-import UserContest from '../../context/userContext'
+import { UserContext } from '../../context'
 
 
 const Message = () => {
 
-    const { user, Token } = useContext(UserContest)
+    const { user, Token } = useContext(UserContext)
     const socket = useRef();
     const scrollRef = useRef();
     const [searchMember, setSearchMember] = useState('')
@@ -46,6 +44,7 @@ const Message = () => {
             }
             handelSelcetChat(CurrentChatID)
         }
+        // eslint-disable-next-line
     }, [CurrentChatID])
 
     useEffect(() => {
@@ -64,6 +63,7 @@ const Message = () => {
         }
 
         getMembers()
+        // eslint-disable-next-line
     }, [])
 
     const handelSendMessage = () => {

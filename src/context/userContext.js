@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { BASE_URL } from "../components/util";
 
-const UserContest = createContext(null)
+export const UserContext = createContext(null)
 
 export const UserDataProvider = ({ children }) => {
     const [user, setUser] = useState(0);
@@ -23,13 +23,12 @@ export const UserDataProvider = ({ children }) => {
 
 
     return (
-        <UserContest.Provider value={{
+        <UserContext.Provider value={{
             user, setUser,
             Token, setToken
         }}>
             {children}
-        </UserContest.Provider>
+        </UserContext.Provider>
     )
 }
 
-export default UserContest

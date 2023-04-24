@@ -3,10 +3,10 @@ import './nav.css'
 import img from '../../Assets/img.jpg'
 import notification from '../../Assets/icons/noticon.png'
 import { useNavigate } from 'react-router-dom'
-import UserContest from '../../context/userContext'
+import { UserContext } from '../../context'
 
 const Header = () => {
-    const { user, Token } = useContext(UserContest)
+    const { user } = useContext(UserContext)
 
     const navigate = useNavigate()
     return (

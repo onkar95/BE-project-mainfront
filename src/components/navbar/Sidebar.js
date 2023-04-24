@@ -4,8 +4,8 @@ import homeicon from '../../Assets/icons/homeicon.png'
 import profile from '../../Assets/icons/profileicon.png'
 import job from '../../Assets/icons/jobsicon.png'
 import messageicon from '../../Assets/icons/messageicon.png'
-import DashboardContest from '../../context/dashboardContext'
 import { useNavigate } from 'react-router-dom'
+import { DashboardContest } from '../../context'
 
 const Sidebar = () => {
 

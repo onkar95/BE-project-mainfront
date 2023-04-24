@@ -3,8 +3,8 @@ import { verifyUser, registerUser, userLogin, Userlogout } from '../Actions/Auth
 import { deleteUser, getAllUser, getSingleUser, updateProfile } from '../Actions/UserAction'
 
 // initialize userToken from local storage
-const userToken = localStorage.getItem('userToken')
-    ? localStorage.getItem('userToken')
+const userToken = localStorage.getItem('token')
+    ? localStorage.getItem('token')
     : null
 
 let verified
@@ -80,7 +80,6 @@ const userSlice = createSlice({
         // get user details
         [verifyUser.pending]: (state) => {
             state.loading = true
-            // state.verified = false
         },
         [verifyUser.fulfilled]: (state, { payload }) => {
             state.loading = false

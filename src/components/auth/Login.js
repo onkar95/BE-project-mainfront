@@ -4,12 +4,12 @@ import './Auth.css'
 import axios from 'axios'
 import { BASE_URL } from '../util'
 import login from "../../Assets/login.png"
-import UserContest from '../../context/userContext'
+import { UserContext } from '../../context'
 
 const Login = () => {
     const [Email, setEmail] = useState()
     const [Password, setPassword] = useState()
-    const { user, setUser, setToken } = useContext(UserContest)
+    const { user, setUser, setToken } = useContext(UserContext)
 
     const navigate = useNavigate()
     const handelSubmit = () => {

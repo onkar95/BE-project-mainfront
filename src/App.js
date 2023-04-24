@@ -5,13 +5,11 @@ import Dashboard from './screen/Dashboard';
 import './App.css'
 import Header from './components/navbar/Header';
 import Profile from './components/profile/Profile';
-import { DashboardDataProvider } from './context/dashboardContext';
-import { UserDataProvider } from './context/userContext';
 import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
 import Sidebar from './components/navbar/Sidebar';
-import { ProfileDataProvider } from './context/profileContext';
 import Message from './components/Messages/Message';
+import { DashboardDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 
 
 function App() {
