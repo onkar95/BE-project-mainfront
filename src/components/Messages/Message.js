@@ -132,7 +132,9 @@ const Message = () => {
                         :
                         Messages && Messages?.map((val, key) => (
                             <div className={val.from === user._id ? 'my_message msg' : 'others_msg msg'}>
-                                <img src={val.from === user._id ? girl_profile : boy_profile} alt="profile" />
+                                <span className='sp'>
+                                </span>
+
                                 <h4>{val.message}</h4>
                             </div>
                         ))}
