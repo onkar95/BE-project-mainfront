@@ -1,9 +1,9 @@
 export const testData =
     [
         {
-            title: "App Development Basic",
+            title: "App Developer - THA",
             description: "This is the first test This is the first test This is the first test This is the first test",
-            time: "30 mins",
+            time: "3 days",
             level: "Medium",
             testLink: "#"      
         },
@@ -14,9 +14,9 @@ export const testData =
             level: "Medium",
             testLink: "#"      
         },{
-            title: "Frontend Engineer",
+            title: "Frontend Engineer - THA",
             description: "This is the third test This is the third test This is the third test This is the third test",
-            time: "60 mins",
+            time: "2 days",
             level: "Hard",
             testLink: "#"      
         },{

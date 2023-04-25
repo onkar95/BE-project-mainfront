@@ -6,6 +6,7 @@ import './App.css'
 import Header from './components/navbar/Header';
 import Profile from './components/profile/Profile';
 import Message from './components/Messages/Message';
+import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
 import { DashboardDataProvider } from './context/dashboardContext';
 
 
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path='/take-home' element={<TakeHomeAssignment />} />
         </Routes>
         <DashboardDataProvider>
           <Routes>

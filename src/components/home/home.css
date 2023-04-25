@@ -41,7 +41,7 @@
 }
 
 .test-card #test-card-heading {
-  height: 25%;
+  height: 30%;
   font-size: 24px;
   color: #222;
   margin-top: 0;
@@ -63,10 +63,14 @@
   height: 20%;
 }
 
-.test-card .test-card-btn {
-  box-sizing: border-box;
+#test-card-link{
   text-decoration: none;
+}
+
+.test-card .test-card-btn {
+  box-sizing: border-box;  
     display: block;
+    cursor:pointer;
     text-align: center;
     font-weight: 600;
     width: 120px;
