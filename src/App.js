@@ -24,18 +24,16 @@ function App() {
                 <Header />
               </div>
               <div className='components'>
-
-
                 <Sidebar />
                 <Routes>
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-          <Route path='/take-home' element={<TakeHomeAssignment />} />
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/job" element={<Jobs />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/messages" element={<Message />} />
+                  <Route path='/take-home' element={<TakeHomeAssignment />} />
                 </Routes>
               </div>
             </Router>
