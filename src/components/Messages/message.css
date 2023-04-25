@@ -16,6 +16,14 @@
     background: url('/src/Assets/chat_bg.jpg');
     width: 75%;
     padding: 40px 15px;
+
+    height: 600px;
+}
+
+.messages {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-margin-right: 0;
 }
 
 .personLists {

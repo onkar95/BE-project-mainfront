@@ -3,10 +3,20 @@ const express = require('express')
 const cors = require('cors')
 const { connection } = require('./config/Db')
 const mongoose = require('mongoose')
+const auth = require('./routes/userRoutes')
+const chat = require('./routes/messageRoutes')
 
 const app = express()
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+}
 
 app.use(express.json())
+app.use(cors(corsOptions))
+app.use('/auth', auth)
+app.use('/chat', chat)
 
 
 mongoose.set('strictQuery', true);
@@ -15,7 +25,6 @@ const server = app.listen(port, () => { console.log('server live on 5000'), conn
 
 const io = require('socket.io')(server,
     {
-        pingtimeout: 60000,
         cors: {
             origin: "http://localhost:3000",
             credentials: true,
@@ -23,7 +32,17 @@ const io = require('socket.io')(server,
     }
 )
 
-io.on('connection', (socket) => {
-    console.log('socket io connected')
-})
+global.onlineUsers = new Map();
+io.on("connection", (socket) => {
+    global.chatSocket = socket;
+    socket.on("add-user", (userId) => {
+        onlineUsers.set(userId, socket.id);
+    });
 
+    socket.on("send-msg", (data) => {
+        const sendUserSocket = onlineUsers.get(data.to);
+        if (sendUserSocket) {
+            socket.to(sendUserSocket).emit("msg-recieve", data);
+        }
+    });
+});
