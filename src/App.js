@@ -9,6 +9,7 @@ import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
 import Sidebar from './components/navbar/Sidebar';
 import Message from './components/Messages/Message';
+import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
 import { DashboardDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 
 
@@ -23,8 +24,6 @@ function App() {
                 <Header />
               </div>
               <div className='components'>
-
-
                 <Sidebar />
                 <Routes>
                   <Route path="/login" element={<Login />} />
@@ -34,6 +33,7 @@ function App() {
                   <Route path="/job" element={<Jobs />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/messages" element={<Message />} />
+                  <Route path='/take-home' element={<TakeHomeAssignment />} />
                 </Routes>
               </div>
             </Router>
