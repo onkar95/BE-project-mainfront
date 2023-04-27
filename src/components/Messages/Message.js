@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './message.css'
-import girl_profile from '../../Assets/girl_profile.jpg'
-import boy_profile from '../../Assets/boy_profile.jpg'
+// import girl_profile from '../../Assets/girl_profile.jpg'
+// import boy_profile from '../../Assets/boy_profile.jpg'
 import profile from '../../Assets/icons/profileicon.png'
 import { io } from "socket.io-client";
 import axios from 'axios'

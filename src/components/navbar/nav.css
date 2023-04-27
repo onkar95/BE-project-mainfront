@@ -28,7 +28,6 @@
 .noti_img {
     width: 24px;
     height: 28px;
-
 }
 
 .profile_img {
@@ -44,32 +43,29 @@
 .side_nav {
     background-color: rgba(217, 217, 217, 0.17);
     width: 200px;
-    padding: 50px 30px 50px 30px;
+    padding: 50px 30px;
     height: 74vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .sidenav_items_div {
     display: flex;
     flex-direction: column;
-
 }
 
 .nav_item {
     display: flex;
+    height: 60px;
     align-items: center;
     gap: 5px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     margin-bottom: 20px;
-
     color: #000000;
 }
-
 
 .active {
     color: #F9A826;
@@ -89,6 +85,4 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 40px;
-
-
 }
