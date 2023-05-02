@@ -67,28 +67,6 @@
     color: #333; 
 }
 
-#upload-field-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.url-upload-input {
-    width: 50%;
-    line-height: 40px;
-    font-size: 16px;
-    outline-color: #4e8be7;
-    background-color: rgba(25, 118, 210, 0.08);
-    border: none;
-    border-radius: 10px;
-    padding: 0 20px;
-    background: #ffffff;
-    border: 1px solid #000000;
-    box-shadow: 4px 4px 0px #000000;
-    border-radius: 5px;
-    outline: none;
-}
-
 .card1{
     background-color: #FDF3EA;
 }
