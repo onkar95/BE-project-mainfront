@@ -7,7 +7,6 @@ import Header from './components/navbar/Header';
 import Profile from './components/profile/Profile';
 import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
-import Sidebar from './components/navbar/Sidebar';
 import Message from './components/Messages/Message';
 import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
 import { DashboardDataProvider, ProfileDataProvider, UserDataProvider } from './context';
@@ -21,6 +20,9 @@ function App() {
         <DashboardDataProvider>
           <ProfileDataProvider>
             <Router>
+              <div className='header_sidebar'>
+                <Header />
+              </div>
               <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
@@ -29,7 +31,7 @@ function App() {
                 <Route path="/job" element={<Main Component={Jobs} />} />
                 <Route path="/profile" element={<Main Component={Profile} />} />
                 <Route path="/messages" element={<Main Component={Message} />} />
-                <Route path='/take-home' element={<TakeHomeAssignment />} />
+                <Route path='/take-home' element={<Main Component={TakeHomeAssignment} />} />
               </Routes>
             </Router>
           </ProfileDataProvider>
