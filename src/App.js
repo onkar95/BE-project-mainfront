@@ -11,6 +11,7 @@ import Sidebar from './components/navbar/Sidebar';
 import Message from './components/Messages/Message';
 import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
 import { DashboardDataProvider, ProfileDataProvider, UserDataProvider } from './context';
+import Main from './layout/Main';
 
 
 function App() {
@@ -20,22 +21,16 @@ function App() {
         <DashboardDataProvider>
           <ProfileDataProvider>
             <Router>
-              <div className='header_sidebar'>
-                <Header />
-              </div>
-              <div className='components'>
-                <Sidebar />
-                <Routes>
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/job" element={<Jobs />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/messages" element={<Message />} />
-                  <Route path='/take-home' element={<TakeHomeAssignment />} />
-                </Routes>
-              </div>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/home" element={<Main Component={Home} />} />
+                <Route path="/job" element={<Main Component={Jobs} />} />
+                <Route path="/profile" element={<Main Component={Profile} />} />
+                <Route path="/messages" element={<Main Component={Message} />} />
+                <Route path='/take-home' element={<TakeHomeAssignment />} />
+              </Routes>
             </Router>
           </ProfileDataProvider>
         </DashboardDataProvider>
