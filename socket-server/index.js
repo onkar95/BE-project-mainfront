@@ -8,7 +8,7 @@ const chat = require('./routes/messageRoutes')
 
 const app = express()
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200,
 }
@@ -26,7 +26,7 @@ const server = app.listen(port, () => { console.log('server live on 5000'), conn
 const io = require('socket.io')(server,
     {
         cors: {
-            origin: "http://localhost:3000",
+            origin: ['http://localhost:3000', 'http://localhost:3001'],
             credentials: true,
         },
     }

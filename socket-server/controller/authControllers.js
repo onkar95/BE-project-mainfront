@@ -37,12 +37,16 @@ exports.login = CatchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler("Please Enter Email & Password", 400));
     }
     const user = await User.findOne({ email })
+
     if (!user) {
+        // return next(new ErrorHandler("Invalid email or password", 401));
+        console.log("first")
         return next(new ErrorHandler("Invalid email or password", 401));
     }
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
+        console.log("sec")
         return next(new ErrorHandler("Invalid email or password", 401));
     }
 
