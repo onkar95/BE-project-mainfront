@@ -8,7 +8,8 @@ dotenv.config();
 
 exports.register = CatchAsyncError(async (req, res, next) => {
 
-    const { name, email, password, Role, phoneNo } = req.body
+    const { name, email, password, Role } = req.body
+
     let user = await User.findOne({
         email
     })
@@ -22,9 +23,8 @@ exports.register = CatchAsyncError(async (req, res, next) => {
         email,
         password: hashed_password,
         Role,
-        phoneNo,
     });
-
+    console.log(createuser)
     sendToken(createuser, 201, res);
 
 })

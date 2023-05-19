@@ -17,18 +17,18 @@ const Register = () => {
     };
     const handelSubmit = () => {
         const dataObjs = {
-            Name,
-            Email,
-            Password,
+            name: Name,
+            email: Email,
+            password: Password,
             Role
         }
         console.log(dataObjs)
-        axios.post(`${BASE_URL}/register`, dataObjs)
+        axios.post(`${BASE_URL}/auth/register`, dataObjs)
             .then((data) => {
                 console.log(data)
                 alert("registered succesfully")
             })
-            .catch((err) => console.log(err.message))
+            .catch((err) => console.log(err))
     }
 
 

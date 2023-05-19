@@ -35,6 +35,7 @@ const Message = () => {
                 const config = {
                     headers: { 'x-access-token': Token }
                 }
+
                 axios.get(`${BASE_URL}/chat/get-message/${id}`, config)
                     .then((data) => {
                         console.log(data.data)
