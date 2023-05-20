@@ -7,19 +7,18 @@ import { io } from "socket.io-client";
 import axios from 'axios'
 import { BASE_URL } from '../util'
 import { UserContext } from '../../context'
+import { useQuery } from "react-query";
 
 
 const Message = () => {
 
     const { user, Token } = useContext(UserContext)
     const socket = useRef();
-    const scrollRef = useRef();
+    const messagesRef = useRef();
     const [searchMember, setSearchMember] = useState('')
     const [InpMessage, setInpMessage] = useState('')
-    const [Messages, setMessages] = useState([])
-    const [Members, setMembers] = useState([])
-    const [CurrentChatID, setCurrentChatID] = useState()
     const [arrivalMessage, setArrivalMessage] = useState(null);
+    const [CurrentChatID, setCurrentChatID] = useState(null)
 
     useEffect(() => {
         if (user) {
@@ -28,67 +27,109 @@ const Message = () => {
         }
     }, [user]);
 
-    useEffect(() => {
+    const { isLoading, error, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
-            console.log(CurrentChatID)
-            const handelSelcetChat = (id) => {
-                const config = {
-                    headers: { 'x-access-token': Token }
-                }
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: { 'x-access-token': token }
+            };
 
-                axios.get(`${BASE_URL}/chat/get-message/${id}`, config)
-                    .then((data) => {
-                        console.log(data.data)
-                        setMessages(data.data.response)
-                    })
-                    .catch((err) => console.log(err))
-            }
-            handelSelcetChat(CurrentChatID)
+            const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
+            console.log("mess", response.data.response);
+            return response.data.response;
         }
-        // eslint-disable-next-line
-    }, [CurrentChatID])
+    });
+
+    const { isLoading: membersLoading, error: membersError, data: members } = useQuery('Members', async () => {
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: { 'x-access-token': token }
+        };
+
+        const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
+        console.log("mem", response.data.members);
+        setCurrentChatID(response.data.members[0]?._id);
+        return response.data.members;
+    });
+
+    const [Members, setMembers] = useState(members);
+    const [Messages, setMessages] = useState(messages);
 
     useEffect(() => {
-        const getMembers = () => {
-            // const token = localStorage.getItem('token')
-            const config = {
-                headers: { 'x-access-token': Token }
-            }
-            axios.get(`${BASE_URL}/chat/get-members`, config)
-                .then((data) => {
-                    console.log(data)
-                    setMembers(data.data.members)
-                    setCurrentChatID(data.data.members[0]?._id)
-                })
-                .catch((err) => console.log(err))
-        }
+        setMembers(members);
+        if (members && CurrentChatID === null) setCurrentChatID(members[0]?._id)
+    }, [members]);
 
-        getMembers()
-        // eslint-disable-next-line
-    }, [])
+    useEffect(() => {
+        setMessages(messages);
+    }, [messages]);
+
+
+
+
+    // useEffect(() => {
+
+    //     if (CurrentChatID !== undefined) {
+    //         console.log(CurrentChatID)
+    //         const handelSelcetChat = (id) => {
+    //             const config = {
+    //                 headers: { 'x-access-token': Token }
+    //             }
+
+    //             axios.get(`${BASE_URL}/chat/get-message/${id}`, config)
+    //                 .then((data) => {
+    //                     console.log(data.data)
+    //                     setMessages(data.data.response)
+    //                 })
+    //                 .catch((err) => console.log(err))
+    //         }
+    //         handelSelcetChat(CurrentChatID)
+    //     }
+    //     // eslint-disable-next-line
+    // }, [CurrentChatID])
+
+    // useEffect(() => {
+    //     const getMembers = () => {
+    //         // const token = localStorage.getItem('token')
+    //         const config = {
+    //             headers: { 'x-access-token': Token }
+    //         }
+    //         axios.get(`${BASE_URL}/chat/get-members`, config)
+    //             .then((data) => {
+    //                 console.log(data)
+    //                 setMembers(data.data.members)
+    //                 setCurrentChatID(data.data.members[0]?._id)
+    //             })
+    //             .catch((err) => console.log(err))
+    //     }
+
+    //     getMembers()
+    //     // eslint-disable-next-line
+    // }, [])
 
     const handelSendMessage = () => {
 
+        if (InpMessage !== "") {
+            socket.current.emit("send-msg", {
+                to: CurrentChatID,
+                from: user._id,
+                message: InpMessage,
+            });
 
-        socket.current.emit("send-msg", {
-            to: CurrentChatID,
-            from: user._id,
-            message: InpMessage,
-        });
-
-        const config = {
-            headers: { 'x-access-token': Token }
+            const config = {
+                headers: { 'x-access-token': Token }
+            }
+            const data = {
+                SendToUserID: CurrentChatID,
+                message: InpMessage
+            }
+            axios.post(`${BASE_URL}/chat/send-message`, data, config)
+                .then(() => {
+                    setMessages((Message) => [...Message, { message: InpMessage, from: user._id }])
+                    setInpMessage('')
+                })
+                .catch((err) => console.log(err))
         }
-        const data = {
-            SendToUserID: CurrentChatID,
-            message: InpMessage
-        }
-        axios.post(`${BASE_URL}/chat/send-message`, data, config)
-            .then(() => {
-                setMessages((Message) => [...Message, { message: InpMessage, from: user._id }])
-                setInpMessage('')
-            })
-            .catch((err) => console.log(err))
     }
 
 
@@ -105,7 +146,9 @@ const Message = () => {
     }, [arrivalMessage]);
 
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+        if (messagesRef.current) {
+            messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+        }
     }, [Messages]);
     return (
         <div className='message'>
@@ -127,8 +170,8 @@ const Message = () => {
                 </div>
             </div>
             <div className='messageChat'>
-                <div className='messages'>
-                    {Messages.length === 0 ?
+                <div className='messages' ref={messagesRef}>
+                    {Messages?.length === 0 ?
                         <div>No Messages to show</div>
                         :
                         Messages && Messages?.map((val, key) => (

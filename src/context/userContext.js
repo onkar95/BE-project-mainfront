@@ -9,16 +9,19 @@ export const UserDataProvider = ({ children }) => {
     const [Token, setToken] = useState(0);
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        setToken(token)
-        const confg = {
-            headers: { "x-access-token": token }
+        async function userToken(params) {
+            const token = localStorage.getItem('token')
+            setToken(token)
+            const confg = {
+                headers: { "x-access-token": token }
+            }
+            axios.get(`${BASE_URL}/auth/verifyuser`, confg)
+                .then((res) => {
+                    setUser(res.data.user)
+                })
+                .catch((err) => console.log(err))
         }
-        axios.get(`${BASE_URL}/auth/verifyuser`, confg)
-            .then((res) => {
-                setUser(res.data.user)
-            })
-            .catch((err) => console.log(err))
+        userToken()
     }, [])
 
 
