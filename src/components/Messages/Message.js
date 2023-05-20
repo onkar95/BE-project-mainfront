@@ -27,7 +27,7 @@ const Message = () => {
         }
     }, [user]);
 
-    const { isLoading, error, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
+    const { data: messages } = useQuery(['Messages', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
             const token = localStorage.getItem('token');
             const config = {
@@ -40,7 +40,7 @@ const Message = () => {
         }
     });
 
-    const { isLoading: membersLoading, error: membersError, data: members } = useQuery('Members', async () => {
+    const { data: members } = useQuery('Members', async () => {
         const token = localStorage.getItem('token');
         const config = {
             headers: { 'x-access-token': token }
@@ -58,6 +58,7 @@ const Message = () => {
     useEffect(() => {
         setMembers(members);
         if (members && CurrentChatID === null) setCurrentChatID(members[0]?._id)
+        // eslint-disable-next-line
     }, [members]);
 
     useEffect(() => {
@@ -149,6 +150,7 @@ const Message = () => {
         if (messagesRef.current) {
             messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
         }
+        // eslint-disable-next-line
     }, [Messages]);
     return (
         <div className='message'>
