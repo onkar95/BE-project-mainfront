@@ -49,6 +49,7 @@ export const MessageDataProvider = ({ children }) => {
     useEffect(() => {
         setMessages(messages);
     }, [messages]);
+
     return (
         <MessageContext.Provider value={{
             CurrentChatID, setCurrentChatID,

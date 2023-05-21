@@ -11,13 +11,12 @@ import MemberList from './Members';
 const Message = () => {
 
     const { user, Token } = useContext(UserContext)
-    const { Messages, setMessages, loadingMembers, loadingMessages } = useContext(MessageContext)
+    const { Messages, setMessages, loadingMembers, loadingMessages, CurrentChatID } = useContext(MessageContext)
 
     const socket = useRef();
     const messagesRef = useRef();
     const [InpMessage, setInpMessage] = useState('')
     const [arrivalMessage, setArrivalMessage] = useState(null);
-    const [CurrentChatID, setCurrentChatID] = useState(null)
 
     useEffect(() => {
         if (user) {
@@ -26,86 +25,6 @@ const Message = () => {
         }
     }, [user]);
 
-    // const { isLoading: loadingMessages, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
-    //     if (CurrentChatID !== undefined) {
-    //         const token = localStorage.getItem('token');
-    //         const config = {
-    //             headers: { 'x-access-token': token }
-    //         };
-
-    //         const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
-    //         console.log("mess", response.data.response);
-    //         return response.data.response;
-    //     }
-    // });
-
-    // const { isLoading: loadingMembers, data: members } = useQuery('Members', async () => {
-    //     const token = localStorage.getItem('token');
-    //     const config = {
-    //         headers: { 'x-access-token': token }
-    //     };
-
-    //     const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
-    //     console.log("mem", response.data.members);
-    //     setCurrentChatID(response.data.members[0]?._id);
-    //     return response.data.members;
-    // });
-
-    // const [Members, setMembers] = useState(members);
-    // const [Messages, setMessages] = useState(messages);
-
-    // useEffect(() => {
-    //     setMembers(members);
-    //     if (members && CurrentChatID === null) setCurrentChatID(members[0]?._id)
-    //     // eslint-disable-next-line
-    // }, [members]);
-
-    // useEffect(() => {
-    //     setMessages(messages);
-    // }, [messages]);
-
-
-
-
-    // useEffect(() => {
-
-    //     if (CurrentChatID !== undefined) {
-    //         console.log(CurrentChatID)
-    //         const handelSelcetChat = (id) => {
-    //             const config = {
-    //                 headers: { 'x-access-token': Token }
-    //             }
-
-    //             axios.get(`${BASE_URL}/chat/get-message/${id}`, config)
-    //                 .then((data) => {
-    //                     console.log(data.data)
-    //                     setMessages(data.data.response)
-    //                 })
-    //                 .catch((err) => console.log(err))
-    //         }
-    //         handelSelcetChat(CurrentChatID)
-    //     }
-    //     // eslint-disable-next-line
-    // }, [CurrentChatID])
-
-    // useEffect(() => {
-    //     const getMembers = () => {
-    //         // const token = localStorage.getItem('token')
-    //         const config = {
-    //             headers: { 'x-access-token': Token }
-    //         }
-    //         axios.get(`${BASE_URL}/chat/get-members`, config)
-    //             .then((data) => {
-    //                 console.log(data)
-    //                 setMembers(data.data.members)
-    //                 setCurrentChatID(data.data.members[0]?._id)
-    //             })
-    //             .catch((err) => console.log(err))
-    //     }
-
-    //     getMembers()
-    //     // eslint-disable-next-line
-    // }, [])
 
     const handelSendMessage = () => {
 
@@ -132,7 +51,6 @@ const Message = () => {
         }
     }
 
-
     useEffect(() => {
         if (socket.current) {
             socket.current.on("msg-recieve", (data) => {
@@ -152,8 +70,6 @@ const Message = () => {
         // eslint-disable-next-line
     }, [Messages]);
 
-    console.log(Messages)
-    console.log(user)
     return (
         <div className='message'>
             {
@@ -161,23 +77,6 @@ const Message = () => {
                     <Loading />
                     :
                     <div className='message'>
-                        {/* <div className='messageSidebar'>
-                            <div>
-                                <input className='input' type='test' value={searchMember}
-                                    onChange={(a) =>
-                                        setSearchMember(a.target.value)} />
-                            </div>
-                            <div className='personLists' >
-                                {
-                                    Members && Members?.map((val, key) => (
-                                        <div className='member' onClick={() => setCurrentChatID(val._id)}>
-                                            <img src={profile} alt="profile" />
-                                            <p>{val.name}</p>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div> */}
                         <MemberList />
                         <div className='messageChat'>
                             <div className='messages' ref={messagesRef}>
