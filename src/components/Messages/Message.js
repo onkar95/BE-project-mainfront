@@ -1,21 +1,20 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './message.css'
-// import girl_profile from '../../Assets/girl_profile.jpg'
-// import boy_profile from '../../Assets/boy_profile.jpg'
-import profile from '../../Assets/icons/profileicon.png'
 import { io } from "socket.io-client";
 import axios from 'axios'
 import { BASE_URL } from '../util'
-import { UserContext } from '../../context'
-import { useQuery } from "react-query";
+import { MessageContext, UserContext } from '../../context'
+import Loading from '../utils/Loader/Loading';
+import MemberList from './Members';
 
 
 const Message = () => {
 
     const { user, Token } = useContext(UserContext)
+    const { Messages, setMessages, loadingMembers, loadingMessages } = useContext(MessageContext)
+
     const socket = useRef();
     const messagesRef = useRef();
-    const [searchMember, setSearchMember] = useState('')
     const [InpMessage, setInpMessage] = useState('')
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const [CurrentChatID, setCurrentChatID] = useState(null)
@@ -27,43 +26,43 @@ const Message = () => {
         }
     }, [user]);
 
-    const { data: messages } = useQuery(['Messages', CurrentChatID], async () => {
-        if (CurrentChatID !== undefined) {
-            const token = localStorage.getItem('token');
-            const config = {
-                headers: { 'x-access-token': token }
-            };
+    // const { isLoading: loadingMessages, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
+    //     if (CurrentChatID !== undefined) {
+    //         const token = localStorage.getItem('token');
+    //         const config = {
+    //             headers: { 'x-access-token': token }
+    //         };
 
-            const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
-            console.log("mess", response.data.response);
-            return response.data.response;
-        }
-    });
+    //         const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
+    //         console.log("mess", response.data.response);
+    //         return response.data.response;
+    //     }
+    // });
 
-    const { data: members } = useQuery('Members', async () => {
-        const token = localStorage.getItem('token');
-        const config = {
-            headers: { 'x-access-token': token }
-        };
+    // const { isLoading: loadingMembers, data: members } = useQuery('Members', async () => {
+    //     const token = localStorage.getItem('token');
+    //     const config = {
+    //         headers: { 'x-access-token': token }
+    //     };
 
-        const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
-        console.log("mem", response.data.members);
-        setCurrentChatID(response.data.members[0]?._id);
-        return response.data.members;
-    });
+    //     const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
+    //     console.log("mem", response.data.members);
+    //     setCurrentChatID(response.data.members[0]?._id);
+    //     return response.data.members;
+    // });
 
-    const [Members, setMembers] = useState(members);
-    const [Messages, setMessages] = useState(messages);
+    // const [Members, setMembers] = useState(members);
+    // const [Messages, setMessages] = useState(messages);
 
-    useEffect(() => {
-        setMembers(members);
-        if (members && CurrentChatID === null) setCurrentChatID(members[0]?._id)
-        // eslint-disable-next-line
-    }, [members]);
+    // useEffect(() => {
+    //     setMembers(members);
+    //     if (members && CurrentChatID === null) setCurrentChatID(members[0]?._id)
+    //     // eslint-disable-next-line
+    // }, [members]);
 
-    useEffect(() => {
-        setMessages(messages);
-    }, [messages]);
+    // useEffect(() => {
+    //     setMessages(messages);
+    // }, [messages]);
 
 
 
@@ -152,45 +151,56 @@ const Message = () => {
         }
         // eslint-disable-next-line
     }, [Messages]);
+
+    console.log(Messages)
+    console.log(user)
     return (
         <div className='message'>
-            <div className='messageSidebar'>
-                <div>
-                    <input className='input' type='test' value={searchMember}
-                        onChange={(a) =>
-                            setSearchMember(a.target.value)} />
-                </div>
-                <div className='personLists' >
-                    {
-                        Members && Members?.map((val, key) => (
-                            <div className='member' onClick={() => setCurrentChatID(val._id)}>
-                                <img src={profile} alt="profile" />
-                                <p>{val.name}</p>
+            {
+                loadingMembers || loadingMessages ?
+                    <Loading />
+                    :
+                    <div className='message'>
+                        {/* <div className='messageSidebar'>
+                            <div>
+                                <input className='input' type='test' value={searchMember}
+                                    onChange={(a) =>
+                                        setSearchMember(a.target.value)} />
                             </div>
-                        ))
-                    }
-                </div>
-            </div>
-            <div className='messageChat'>
-                <div className='messages' ref={messagesRef}>
-                    {Messages?.length === 0 ?
-                        <div>No Messages to show</div>
-                        :
-                        Messages && Messages?.map((val, key) => (
-                            <div className={val.from === user._id ? 'my_message msg' : 'others_msg msg'}>
-                                <span className='sp'>
-                                </span>
-
-                                <h4>{val.message}</h4>
+                            <div className='personLists' >
+                                {
+                                    Members && Members?.map((val, key) => (
+                                        <div className='member' onClick={() => setCurrentChatID(val._id)}>
+                                            <img src={profile} alt="profile" />
+                                            <p>{val.name}</p>
+                                        </div>
+                                    ))
+                                }
                             </div>
-                        ))}
-                </div>
-                <div className='message_inp'>
-                    <input type='text' className='input' value={InpMessage} onChange={(a) => setInpMessage(a.target.value)} />
-                    <button className='button' onClick={() => handelSendMessage()} >Send</button>
-                </div>
-            </div>
+                        </div> */}
+                        <MemberList />
+                        <div className='messageChat'>
+                            <div className='messages' ref={messagesRef}>
+                                {Messages?.length === 0 ?
+                                    <div>No Messages to show</div>
+                                    :
+                                    Messages && Messages?.map((val) => (
+                                        <div className={val.from === user._id ? 'my_message msg' : 'others_msg msg'}>
+                                            <span className='sp'>
+                                            </span>
 
+                                            <h4>{val.message}</h4>
+                                        </div>
+                                    ))}
+                            </div>
+                            <div className='message_inp'>
+                                <input type='text' className='input' value={InpMessage} onChange={(a) => setInpMessage(a.target.value)} />
+                                <button className='button' onClick={() => handelSendMessage()} >Send</button>
+                            </div>
+                        </div>
+
+                    </div>
+            }
         </div>
     )
 }

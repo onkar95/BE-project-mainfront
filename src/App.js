@@ -9,7 +9,7 @@ import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
 import Message from './components/Messages/Message';
 import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
-import { DashboardDataProvider, ProfileDataProvider, UserDataProvider } from './context';
+import { DashboardDataProvider, MessageDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 import Main from './layout/Main';
 
 
@@ -19,21 +19,24 @@ function App() {
       <UserDataProvider>
         <DashboardDataProvider>
           <ProfileDataProvider>
-            <Router>
-              <div className='header_sidebar'>
-                <Header />
-              </div>
-              <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/home" element={<Main Component={Home} />} />
-                <Route path="/job" element={<Main Component={Jobs} />} />
-                <Route path="/profile" element={<Main Component={Profile} />} />
-                <Route path="/messages" element={<Main Component={Message} />} />
-                <Route path='/take-home' element={<Main Component={TakeHomeAssignment} />} />
-              </Routes>
-            </Router>
+            <MessageDataProvider>
+
+              <Router>
+                <div className='header_sidebar'>
+                  <Header />
+                </div>
+                <Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/home" element={<Main Component={Home} />} />
+                  <Route path="/job" element={<Main Component={Jobs} />} />
+                  <Route path="/profile" element={<Main Component={Profile} />} />
+                  <Route path="/messages" element={<Main Component={Message} />} />
+                  <Route path='/take-home' element={<Main Component={TakeHomeAssignment} />} />
+                </Routes>
+              </Router>
+            </MessageDataProvider>
           </ProfileDataProvider>
         </DashboardDataProvider>
       </UserDataProvider>

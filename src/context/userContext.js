@@ -5,7 +5,7 @@ import { BASE_URL } from "../components/util";
 export const UserContext = createContext(null)
 
 export const UserDataProvider = ({ children }) => {
-    const [user, setUser] = useState(0);
+    const [user, setUser] = useState();
     const [Token, setToken] = useState(0);
 
     useEffect(() => {
