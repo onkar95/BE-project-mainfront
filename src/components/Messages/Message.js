@@ -61,6 +61,7 @@ const Message = () => {
 
     useEffect(() => {
         arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
+        // eslint-disable-next-line
     }, [arrivalMessage]);
 
     useEffect(() => {
@@ -84,7 +85,7 @@ const Message = () => {
                                     <div>No Messages to show</div>
                                     :
                                     Messages && Messages?.map((val) => (
-                                        <div className={val.from === user._id ? 'my_message msg' : 'others_msg msg'}>
+                                        <div className={val.from === user?._id ? 'my_message msg' : 'others_msg msg'}>
                                             <span className='sp'>
                                             </span>
 

@@ -1,15 +1,13 @@
-import axios from 'axios';
 import React from 'react'
 import { useContext } from 'react';
 import { useState } from 'react';
-import { useQuery } from 'react-query';
 import { MessageContext } from '../../context';
 import profile from '../../Assets/icons/profileicon.png'
-import { memo } from 'react';
 import { useEffect } from 'react';
+import './message.css'
 
 const MemberList = () => {
-    const { Members, setCurrentChatID, setMembers } = useContext(MessageContext)
+    const { Members, setCurrentChatID } = useContext(MessageContext)
     const [searchMember, setSearchMember] = useState('')
     const [filteredMembers, setfilteredMembers] = useState('')
 
@@ -23,21 +21,22 @@ const MemberList = () => {
 
     useEffect(() => {
         filterMember()
+        // eslint-disable-next-line
     }, [searchMember])
 
     let memberArray = filteredMembers ? filteredMembers : Members
 
     return (
         <div className='messageSidebar'>
-            <div>
-                <input className='input' type='test' value={searchMember}
+            <div className='search_box'>
+                <input className='search_input' type='test' value={searchMember}
                     onChange={(a) =>
                         setSearchMember(a.target.value)} />
             </div>
             <div className='personLists' >
                 {
                     memberArray.length !== 0 ?
-                        memberArray.map((val, key) => (
+                        memberArray.map((val) => (
                             <div className='member' onClick={() => setCurrentChatID(val._id)}>
                                 <img src={profile} alt="profile" />
                                 <p>{val.name}</p>

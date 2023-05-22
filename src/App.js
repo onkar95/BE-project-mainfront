@@ -11,6 +11,7 @@ import Message from './components/Messages/Message';
 import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
 import { DashboardDataProvider, MessageDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 import Main from './layout/Main';
+import Auth from './layout/Auth';
 
 
 function App() {
@@ -22,12 +23,10 @@ function App() {
             <MessageDataProvider>
 
               <Router>
-                <div className='header_sidebar'>
-                  <Header />
-                </div>
+
                 <Routes>
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<Auth Component={Login} />} />
+                  <Route path="/register" element={<Auth Component={Register} />} />
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/home" element={<Main Component={Home} />} />
                   <Route path="/job" element={<Main Component={Jobs} />} />

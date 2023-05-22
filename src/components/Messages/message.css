@@ -146,3 +146,27 @@
     align-items: center;
     gap: 10px;
 }
+
+.search_box {
+    display: flex;
+}
+
+.search_input {
+    width: 80%;
+    line-height: 40px;
+    font-size: 16px;
+    margin: 8px 0;
+    padding: 0 20px;
+    background: #F1F1F1;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+}
+
+/* @media (max-width: 800px) {
+    .messageChat {
+        display: none;
+    }
+} */
