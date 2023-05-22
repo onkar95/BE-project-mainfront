@@ -3,7 +3,6 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Dashboard from './screen/Dashboard';
 import './App.css'
-import Header from './components/navbar/Header';
 import Profile from './components/profile/Profile';
 import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';

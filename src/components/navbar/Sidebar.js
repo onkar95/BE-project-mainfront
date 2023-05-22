@@ -10,7 +10,7 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 
 const Sidebar = () => {
-    const { section, setSection, innerWidth, setinnerWidth, sideBarToggel, setSideBarToggel } = useContext(DashboardContest)
+    const { section, setSection, innerWidth, sideBarToggel, setSideBarToggel } = useContext(DashboardContest)
     const navigate = useNavigate()
 
     const handelClick = (val, route) => {
