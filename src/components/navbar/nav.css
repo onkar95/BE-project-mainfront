@@ -122,8 +122,11 @@
     display: block;
 }
 
-@media (max-width: 800px) {
-    /* .side_nav {
-        display: none;
-    } */
+@media (max-width: 400px) {
+    .collapse_sidebar {
+        width: 140px;
+        padding: 20px 10px;
+        justify-content: space-between;
+        z-index: 4;
+    }
 }

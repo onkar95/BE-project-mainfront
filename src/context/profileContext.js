@@ -41,39 +41,41 @@ export const ProfileDataProvider = ({ children }) => {
 
     const handelAdd = (val, type) => {
         let value = val.target.value
-        switch (type) {
-            case 'skills':
-                if(!selectedSkills.includes(value)){
-                    setSelectedSkills([...selectedSkills, value]);
-                }
-                break;
-            case 'Roles':
-                if(!selectedRoles.includes(value)){
-                    setSelectedRoles([...selectedRoles, value]);
-                }
-                break;
-            case 'Role':
-                setPrimaryRole(value)
-                break;
-            case 'EmployeeSize':
-                setEmployeeSize(value)
-                break;
-            case 'Locations':
-                setLocations(value)
-                break;
-            case 'remoteOffice':
-                setremoteOffice(value)
-                break;
-            case 'SalaryRange':
-                setSalaryRange(value)
-                break;
-            case 'TypeOfJobs':
-                setTypeOfJobs(value)
-                break;
+        if (value !== 'select') {
+            switch (type) {
+                case 'skills':
+                    if (!selectedSkills.includes(value)) {
+                        setSelectedSkills([...selectedSkills, value]);
+                    }
+                    break;
+                case 'Roles':
+                    if (!selectedRoles.includes(value)) {
+                        setSelectedRoles([...selectedRoles, value]);
+                    }
+                    break;
+                case 'Role':
+                    setPrimaryRole(value)
+                    break;
+                case 'EmployeeSize':
+                    setEmployeeSize(value)
+                    break;
+                case 'Locations':
+                    setLocations(value)
+                    break;
+                case 'remoteOffice':
+                    setremoteOffice(value)
+                    break;
+                case 'SalaryRange':
+                    setSalaryRange(value)
+                    break;
+                case 'TypeOfJobs':
+                    setTypeOfJobs(value)
+                    break;
 
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
         // setSelectedSkills([...selectedSkills, value])
     }

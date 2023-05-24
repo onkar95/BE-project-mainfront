@@ -219,3 +219,17 @@
 
 
 }
+
+@media (max-width: 350px) {
+
+    .selected_roles,
+    .selected_skills {
+
+        gap: 5px;
+        max-height: 100px;
+        overflow-y: scroll;
+        margin: 5px 0;
+    }
+
+
+}
