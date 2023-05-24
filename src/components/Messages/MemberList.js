@@ -1,15 +1,19 @@
 import React from 'react'
 import { useContext } from 'react';
 import { useState } from 'react';
-import { MessageContext } from '../../context';
+import { DashboardContest, MessageContext } from '../../context';
 import profile from '../../Assets/icons/profileicon.png'
 import { useEffect } from 'react';
 import './message.css'
+import { useNavigate } from 'react-router-dom'
 
 const MemberList = () => {
-    const { Members, setCurrentChatID } = useContext(MessageContext)
+    const { Members, setCurrentChatID, setMobileChatClicked, mobileChatClicked } = useContext(MessageContext)
+    const { innerWidth } = useContext(DashboardContest)
     const [searchMember, setSearchMember] = useState('')
     const [filteredMembers, setfilteredMembers] = useState('')
+
+    const navigate = useNavigate()
 
     const filterMember = () => {
         const findMember = Members.filter((key) => {
@@ -23,11 +27,18 @@ const MemberList = () => {
         filterMember()
         // eslint-disable-next-line
     }, [searchMember])
+    const handelMobileMessages = (id) => {
+        setCurrentChatID(id)
+        if (innerWidth < 400) {
+            // navigate(`/chat/${id}`)
+            setMobileChatClicked(true)
+        }
+    }
 
     let memberArray = filteredMembers ? filteredMembers : Members
 
     return (
-        <div className='messageSidebar'>
+        <div className={innerWidth < 400 && mobileChatClicked ? 'none mobile_chat_box ' : " messageSidebar"}>
             <div className='search_box'>
                 <input className='search_input' type='test' value={searchMember}
                     onChange={(a) =>
@@ -37,7 +48,7 @@ const MemberList = () => {
                 {
                     memberArray.length !== 0 ?
                         memberArray.map((val) => (
-                            <div className='member' onClick={() => setCurrentChatID(val._id)}>
+                            <div className='member' onClick={() => handelMobileMessages(val._id)}>
                                 <img src={profile} alt="profile" />
                                 <p>{val.name}</p>
                             </div>

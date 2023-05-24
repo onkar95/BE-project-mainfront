@@ -11,6 +11,7 @@ export const MessageContext = createContext(null)
 export const MessageDataProvider = ({ children }) => {
 
     const [CurrentChatID, setCurrentChatID] = useState()
+    const [mobileChatClicked, setMobileChatClicked] = useState(false)
 
     const { isLoading: loadingMessages, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
@@ -55,7 +56,8 @@ export const MessageDataProvider = ({ children }) => {
             CurrentChatID, setCurrentChatID,
             Members, setMembers,
             Messages, setMessages,
-            loadingMembers, loadingMessages
+            loadingMembers, loadingMessages,
+            mobileChatClicked, setMobileChatClicked
         }}>
             {children}
         </MessageContext.Provider>

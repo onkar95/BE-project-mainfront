@@ -11,6 +11,7 @@ import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment
 import { DashboardDataProvider, MessageDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 import Main from './layout/Main';
 import Auth from './layout/Auth';
+import MobileMessages from './components/Messages/MobileMessages';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                   <Route path="/job" element={<Main Component={Jobs} />} />
                   <Route path="/profile" element={<Main Component={Profile} />} />
                   <Route path="/messages" element={<Main Component={Message} />} />
+                  <Route path="/chat/:id" element={<Main Component={MobileMessages} />} />
                   <Route path='/take-home' element={<Main Component={TakeHomeAssignment} />} />
                 </Routes>
               </Router>
