@@ -15,7 +15,7 @@ import Auth from './layout/Auth';
 
 function App() {
   return (
-    <div>
+    <>
       <UserDataProvider>
         <DashboardDataProvider>
           <ProfileDataProvider>
@@ -38,7 +38,7 @@ function App() {
           </ProfileDataProvider>
         </DashboardDataProvider>
       </UserDataProvider>
-    </div >
+    </ >
   );
 }
 

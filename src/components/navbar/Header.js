@@ -20,7 +20,7 @@ const Header = () => {
         setSideBarToggel(!sideBarToggel)
     }
     return (
-        <div >
+        < >
             {innerWidth <= 800 ?
                 <div className='header'>
 
@@ -55,7 +55,7 @@ const Header = () => {
 
 
 
-        </div>
+        </>
     )
 }
 

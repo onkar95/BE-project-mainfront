@@ -77,7 +77,7 @@ const Message = () => {
                 loadingMembers || loadingMessages ?
                     <Loading />
                     :
-                    <div className='message'>
+                    <>
                         <MemberList />
                         <div className='messageChat'>
                             <div className='messages' ref={messagesRef}>
@@ -99,7 +99,7 @@ const Message = () => {
                             </div>
                         </div>
 
-                    </div>
+                    </>
             }
         </div>
     )

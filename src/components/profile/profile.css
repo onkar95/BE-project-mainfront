@@ -37,13 +37,20 @@
 }
 
 
-/* 
-.profile_nav button:active {
-    background-color: #FF5733;
-    transition: background-color 0s;
-}*/
+@media (max-width: 800px) {
 
-/* gradually transition back to default background color */
-/*.profile_nav button:not(:active) {
-    transition: background-color 0.3s ease-in-out;
-}*/
+    .profile {
+        width: 100%;
+        /* font-size: small; */
+        padding: 0;
+    }
+
+    .profile_nav {
+        width: 99%;
+        overflow: hidden;
+        overflow-x: scroll;
+        gap: 10px;
+
+    }
+
+}

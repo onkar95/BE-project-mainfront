@@ -6,6 +6,9 @@
     height: 50px;
     background: #F1F1F1;
     border-bottom: 1px solid #CCCCCC;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 .header_right {

@@ -1,5 +1,6 @@
 .message {
     display: flex;
+    height: 100px;
     width: 100%;
 }
 
@@ -165,8 +166,21 @@
     resize: none;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 400px) {
+    .messageSidebar {
+        width: 40%;
+    }
+
+
     .messageChat {
         display: none;
     }
-} */
+}
+
+@media (max-width: 800px) {
+    .messageSidebar {
+        width: 40%;
+    }
+
+
+}
