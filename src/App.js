@@ -23,7 +23,6 @@ function App() {
             <MessageDataProvider>
 
               <Router>
-
                 <Routes>
                   <Route path="/login" element={<Auth Component={Login} />} />
                   <Route path="/register" element={<Auth Component={Register} />} />

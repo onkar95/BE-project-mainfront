@@ -26,7 +26,7 @@ const server = app.listen(port, () => { console.log('server live on 5000'), conn
 const io = require('socket.io')(server,
     {
         cors: {
-            origin: ['http://localhost:3000', 'http://localhost:3001'],
+            origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'],
             credentials: true,
         },
     }

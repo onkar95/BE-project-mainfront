@@ -27,10 +27,10 @@ const MemberList = () => {
         if (searchMember !== '') filterMember()
         // eslint-disable-next-line
     }, [searchMember])
+
     const handelMobileMessages = (id) => {
         setCurrentChatID(id)
         if (innerWidth < 400) {
-            // navigate(`/chat/${id}`)
             setMobileChatClicked(true)
         }
     }

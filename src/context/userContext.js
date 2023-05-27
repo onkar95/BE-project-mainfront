@@ -12,7 +12,6 @@ export const UserDataProvider = ({ children }) => {
         async function userToken(params) {
             const token = localStorage.getItem('token')
             setToken(token)
-            console.log(token)
             const confg = {
                 headers: { "x-access-token": token }
             }

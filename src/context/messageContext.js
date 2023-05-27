@@ -13,7 +13,7 @@ export const MessageDataProvider = ({ children }) => {
     const [CurrentChatID, setCurrentChatID] = useState()
     const [mobileChatClicked, setMobileChatClicked] = useState(false)
 
-    const { isLoading: loadingMessages, data: messages } = useQuery(['Messages', CurrentChatID], async () => {
+    const { isLoading: loadingMessages, data: messages } = useQuery(['Message', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
             const token = localStorage.getItem('token');
             const config = {
@@ -26,7 +26,7 @@ export const MessageDataProvider = ({ children }) => {
         }
     });
 
-    const { isLoading: loadingMembers, data: members } = useQuery('Members', async () => {
+    const { isLoading: loadingMembers, data: members } = useQuery('Member', async () => {
         const token = localStorage.getItem('token');
         const config = {
             headers: { 'x-access-token': token }
