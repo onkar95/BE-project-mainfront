@@ -16,7 +16,7 @@ const MemberList = () => {
     const navigate = useNavigate()
 
     const filterMember = () => {
-        const findMember = Members.filter((key) => {
+        const findMember = Members?.filter((key) => {
             return key.name.includes(searchMember) || key.email.includes(searchMember)
         })
         console.log(findMember)
@@ -24,7 +24,7 @@ const MemberList = () => {
     }
 
     useEffect(() => {
-        filterMember()
+        if (searchMember !== '') filterMember()
         // eslint-disable-next-line
     }, [searchMember])
     const handelMobileMessages = (id) => {
@@ -46,15 +46,17 @@ const MemberList = () => {
             </div>
             <div className='personLists' >
                 {
-                    memberArray.length !== 0 ?
-                        memberArray.map((val) => (
-                            <div className='member' onClick={() => handelMobileMessages(val._id)}>
-                                <img src={profile} alt="profile" />
-                                <p>{val.name}</p>
-                            </div>
-                        ))
-                        :
-                        <div className='member'> no match</div>
+                    Members?.length === 0 ?
+                        <div className='member'> No Active chat</div> :
+                        memberArray?.length !== 0 ?
+                            memberArray?.map((val) => (
+                                <div className='member' onClick={() => handelMobileMessages(val._id)}>
+                                    <img src={profile} alt="profile" />
+                                    <p>{val.name}</p>
+                                </div>
+                            ))
+                            :
+                            <div className='member'> no match</div>
                 }
             </div>
         </div>

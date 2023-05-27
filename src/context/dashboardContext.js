@@ -8,7 +8,10 @@ export const DashboardDataProvider = ({ children }) => {
     const [innerWidth, setinnerWidth] = useState(window.innerWidth)
     const [sideBarToggel, setSideBarToggel] = useState(false)
 
+
     useEffect(() => {
+        let sessionSection = sessionStorage.getItem('currentsection')
+        if (sessionSection) setSection(Number(sessionSection))
         const handleResize = () => {
             setinnerWidth(window.innerWidth);
         };

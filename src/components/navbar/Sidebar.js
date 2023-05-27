@@ -22,9 +22,6 @@ const Sidebar = () => {
     console.log(sideBarToggel)
     const sidebarRef = useRef(null);
 
-
-
-
     useEffect(() => {
         const handleOutsideClick = (event) => {
             if (
