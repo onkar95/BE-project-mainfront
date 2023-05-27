@@ -5,7 +5,6 @@ import { DashboardContest, MessageContext } from '../../context';
 import profile from '../../Assets/icons/profileicon.png'
 import { useEffect } from 'react';
 import './message.css'
-import { useNavigate } from 'react-router-dom'
 
 const MemberList = () => {
     const { Members, setCurrentChatID, setMobileChatClicked, mobileChatClicked } = useContext(MessageContext)
@@ -13,7 +12,6 @@ const MemberList = () => {
     const [searchMember, setSearchMember] = useState('')
     const [filteredMembers, setfilteredMembers] = useState('')
 
-    const navigate = useNavigate()
 
     const filterMember = () => {
         const findMember = Members?.filter((key) => {

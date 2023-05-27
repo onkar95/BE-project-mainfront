@@ -12,7 +12,7 @@ import MobileMessages from './MobileMessages';
 const Message = () => {
 
     const { user, Token } = useContext(UserContext)
-    const { Messages, setMessages, loadingMembers, loadingMessages, CurrentChatID, mobileChatClicked, setMobileChatClicked } = useContext(MessageContext)
+    const { Messages, setMessages, loadingMembers, loadingMessages, CurrentChatID } = useContext(MessageContext)
     const { innerWidth } = useContext(DashboardContest)
 
     const socket = useRef();

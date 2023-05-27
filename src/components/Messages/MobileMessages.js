@@ -4,8 +4,6 @@ import { io } from "socket.io-client";
 import axios from 'axios'
 import { BASE_URL } from '../util'
 import { DashboardContest, MessageContext, UserContext } from '../../context'
-import Loading from '../utils/Loader/Loading';
-import MemberList from './MemberList';
 
 
 const MobileMessages = () => {
