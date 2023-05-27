@@ -85,7 +85,9 @@ const Message = () => {
                             <div className="messageChat" >
                                 <div className='messages' ref={messagesRef}>
                                     {Messages?.length === 0 ?
-                                        <div>No Messages to show</div>
+                                        user?._id === undefined ? <div>Login to see your messages</div>
+                                            :
+                                            <div>No Messages to show</div>
                                         :
                                         Messages && Messages?.map((val) => (
                                             <div className={val.from === user?._id ? 'my_message msg' : 'others_msg msg'}>

@@ -7,7 +7,7 @@ export const UserContext = createContext(null)
 export const UserDataProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [Token, setToken] = useState(0);
-
+    console.log(user)
     useEffect(() => {
         async function userToken(params) {
             const token = localStorage.getItem('token')
