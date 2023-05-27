@@ -32,7 +32,8 @@ function App() {
                   <Route path="/profile" element={<Main Component={Profile} />} />
                   <Route path="/messages" element={<Main Component={Message} />} />
                   <Route path="/chat/:id" element={<Main Component={MobileMessages} />} />
-                  <Route path='/take-home' element={<Main Component={TakeHomeAssignment} />} />
+                  <Route path='/take-home' element={<Auth Component={TakeHomeAssignment} />} />
+                  {/* <Route path='/take-home' element={<TakeHomeAssignment />} /> */}
                 </Routes>
               </Router>
             </MessageDataProvider>

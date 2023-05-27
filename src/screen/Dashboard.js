@@ -11,7 +11,7 @@ const Dashboard = () => {
         if (user) {
             return navigate('/home')
         } else {
-            return navigate('/home')
+            return navigate('/login')
         }
         // eslint-disable-next-line
     }, [])

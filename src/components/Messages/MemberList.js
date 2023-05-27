@@ -22,7 +22,11 @@ const MemberList = () => {
     }
 
     useEffect(() => {
-        if (searchMember !== '') filterMember()
+        if (searchMember !== '') {
+            filterMember()
+        } else {
+            setfilteredMembers()
+        }
         // eslint-disable-next-line
     }, [searchMember])
 

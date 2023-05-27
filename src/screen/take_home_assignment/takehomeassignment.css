@@ -4,43 +4,47 @@
 }
 
 .take-home-assignment-container {
-   padding: 30px;
+    padding: 30px;
 }
 
 /* ------------------------ test-details-section starts------------------------*/
 
-.test-details-section{
+.test-details-section {
     margin-bottom: 70px;
 }
 
-#test-details-heading, #test-details-description,#test-details-metadata{
+#test-details-heading,
+#test-details-description,
+#test-details-metadata {
     margin: 10px 0;
 }
-#test-details-description{
+
+#test-details-description {
     color: #555;
 }
 
 /* ------------------------ test-details-section ends---------------------------*/
 /* ------------------------ flow-cards-container starts-------------------------*/
 
-.flow-cards-container{
+.flow-cards-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.flow-card{
+.flow-card {
     width: 500px;
     min-width: 400px;
     margin: 60px 20px;
     display: flex;
 }
 
-.flow-card-icon{
+.flow-card-icon {
     height: 30px;
     width: 30px;
 }
 
-.flow-card-icon-container{
+.flow-card-icon-container {
     min-height: 50px;
     min-width: 50px;
     max-height: 50px;
@@ -51,23 +55,23 @@
     border-radius: 50%;
 }
 
-.flow-card-content{
-    
+.flow-card-content {
+
     padding: 20px;
     border-radius: 25px;
 }
 
-#flow-card-heading{
-    margin-bottom: 10px;   
+#flow-card-heading {
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
-#flow-card-description{
-    margin-bottom: 40px;  
-    color: #333; 
+#flow-card-description {
+    margin-bottom: 40px;
+    color: #333;
 }
 
-#upload-field-container{
+#upload-field-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -89,19 +93,19 @@
     outline: none;
 }
 
-.card1{
+.card1 {
     background-color: #FDF3EA;
 }
 
-.card2{
+.card2 {
     background-color: #EEECFF;
 }
 
-.icon1{
+.icon1 {
     background-color: #FDF3EA;
 }
 
-.icon2{
+.icon2 {
     background-color: #D5D0FC;
 }
 
