@@ -12,11 +12,6 @@ const Login = () => {
     const { user, setUser, setToken } = useContext(UserContext)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (user) {
-            return navigate('/home')
-        }
-    }, [])
     const handelSubmit = () => {
         const dataObjs = {
             email: Email,

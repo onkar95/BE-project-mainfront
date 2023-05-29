@@ -12,6 +12,7 @@ export const MessageDataProvider = ({ children }) => {
 
     const [CurrentChatID, setCurrentChatID] = useState()
     const [mobileChatClicked, setMobileChatClicked] = useState(false)
+
     const { isLoading: loadingMessages, data: messages } = useQuery(['Message', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
             const token = localStorage.getItem('token');
@@ -20,7 +21,7 @@ export const MessageDataProvider = ({ children }) => {
                 headers: { 'x-access-token': token }
             };
 
-            if (token) {
+            if (false) {
                 const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
                 console.log("mess", response.data.response);
                 return response.data.response;
@@ -35,7 +36,7 @@ export const MessageDataProvider = ({ children }) => {
             headers: { 'x-access-token': token }
         };
 
-        if (token) {
+        if (false) {
             const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
             console.log("mem", response.data.members);
             setCurrentChatID(response.data.members[0]?._id);

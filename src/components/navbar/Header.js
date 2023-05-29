@@ -9,7 +9,6 @@ const Header = () => {
     const { user } = useContext(UserContext)
     const { setSection, innerWidth, sideBarToggel, setSideBarToggel } = useContext(DashboardContest)
     const navigate = useNavigate()
-
     const handelClick = (val, route) => {
         sessionStorage.setItem('currentsection', val)
         setSection(val)

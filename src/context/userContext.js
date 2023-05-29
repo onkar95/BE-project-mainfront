@@ -19,12 +19,16 @@ export const UserDataProvider = ({ children }) => {
                 const confg = {
                     headers: { "x-access-token": token }
                 }
-                axios.get(`${BASE_URL}/auth/verifyuser`, confg)
+                axios.get(`${BASE_URL}/api/verifyuser`, confg)
                     .then((res) => {
+                        console.log(res.data)
                         setUser(res.data.user)
                         setVerifyLoading(false)
                     })
-                    .catch((err) => console.log(err))
+                    .catch((err) => {
+                        console.log(err)
+                        setVerifyLoading(false)
+                    })
             }
         }
         userToken()
@@ -34,7 +38,8 @@ export const UserDataProvider = ({ children }) => {
     return (
         <UserContext.Provider value={{
             user, setUser,
-            Token, setToken
+            Token, setToken,
+            VerifyLoading, setVerifyLoading
         }}>
             {children}
         </UserContext.Provider>
