@@ -6,7 +6,7 @@ import { UserContext } from '../context'
 
 const Main = ({ Component }) => {
 
-    const { user, VerifyLoading } = useContext(UserContext)
+    const { VerifyLoading } = useContext(UserContext)
 
     return (
         <>

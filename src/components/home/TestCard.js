@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function TestCard({ test }) {
+function TestCard({ test, testLevel }) {
   return (
     <div className="test-card">
       <h2 id="test-card-heading">{test.title}</h2>
@@ -10,8 +10,8 @@ function TestCard({ test }) {
       </p>
       <p id="test-card-description">{test.description}</p>
       <div id="test-card-btn-container">
-        <Link to="/take-home" state={{ test: test }} id="test-card-link">
-          <button className="test-card-btn">Start Test</button>
+        <Link to={testLevel === 1 ? "/test" : "/take-home"} state={{ test: test }} id="test-card-link">
+          <button className="test-card-btn" >Start Test</button>
         </Link>
       </div>
     </div>
