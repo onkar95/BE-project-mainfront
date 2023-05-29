@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useContext } from "react";
+import { UserContext } from "../../context";
 import ProfileContext from "../../context/profileContext";
 import { BASE_URL } from "../util";
 import "./profilesections.css";
@@ -15,6 +16,7 @@ const Experience = () => {
   const [Description, setDescription] = useState("");
 
   const { setSelected } = useContext(ProfileContext);
+  const { user, Token } = useContext(UserContext);
 
   const handleSkip = () => {
     setSelected(2);
@@ -22,18 +24,22 @@ const Experience = () => {
 
   const handelSave = () => {
     const dataobj = {
-      company,
-      JobTitle,
-      DateFrom,
-      DateTo,
-      Description,
+      company_name: company,
+      job_title: JobTitle,
+      start_date: DateFrom,
+      end_date: DateTo,
+      job_description: Description,
+      user_id: user?.id,
     };
+
     console.log(dataobj);
 
-    axios
-      .post(`${BASE_URL}/Experience`)
+    const config = {
+      Headers: { "x-access-token": Token }
+    }
+    axios.post(`${BASE_URL}/api/profile/saveexperience`, dataobj, config)
       .then((res) => console.log(res))
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err.message))
   };
   return (
     <div className="experience">

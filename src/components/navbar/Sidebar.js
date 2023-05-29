@@ -39,6 +39,8 @@ const Sidebar = () => {
             document.removeEventListener('click', handleOutsideClick);
         };
     }, [setSideBarToggel]);
+
+
     return (
         <>
 
@@ -62,9 +64,7 @@ const Sidebar = () => {
                             <h3>Messaging</h3>
                         </button> */}
                     </div>
-                    <div >
-                        <p>Refer and Win</p>
-                    </div>
+
                 </nav> :
                 <nav className=" side_nav">
                     <div className='sidenav_items_div'>
@@ -85,9 +85,7 @@ const Sidebar = () => {
                             <h3>Messaging</h3>
                         </button> */}
                     </div>
-                    <div >
-                        <p>Refer and Win</p>
-                    </div>
+
                 </nav>
             }
         </>

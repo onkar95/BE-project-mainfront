@@ -44,6 +44,8 @@
 
 
 .side_nav {
+    position: sticky;
+    top: 70px;
     background-color: rgba(217, 217, 217, 0.17);
     min-width: 180px;
     padding: 50px 30px;

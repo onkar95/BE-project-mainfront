@@ -5,6 +5,7 @@ import { BASE_URL } from '../util';
 
 import { useContext } from 'react';
 import ProfileContext from '../../context/profileContext';
+import { UserContext } from '../../context';
 
 const Education = () => {
     const dateToday = new Date().toISOString().slice(0, 10);
@@ -12,23 +13,30 @@ const Education = () => {
     const [College, setCollege] = useState('')
     const [DateFrom, setDateFrom] = useState(new Date().toISOString().slice(0, 10))
     const [DateTo, setDateTo] = useState(new Date().toISOString().slice(0, 10))
-    const { setSelected} = useContext(ProfileContext);
-    
+    const { setSelected } = useContext(ProfileContext);
+
+    const { user, Token } = useContext(UserContext);
+
     const handleSkip = () => {
         setSelected(3);
     }
 
     const handelSave = () => {
+
         const dataobj = {
-            Degree,
-            College,
-            DateFrom,
-            DateTo,
+            // degree_name, college_name, start_date, end_date, user_id
+            degree_name: Degree,
+            college_name: College,
+            start_date: DateFrom,
+            end_date: DateTo,
+            user_id: user?.id
             // Description
         }
         console.log(dataobj)
-
-        axios.post(`${BASE_URL}/Education`)
+        const config = {
+            Headers: { "x-access-token": Token }
+        }
+        axios.post(`${BASE_URL}/api/profile/saveeducation`, dataobj, config)
             .then((res) => console.log(res))
             .catch((err) => console.log(err.message))
     }

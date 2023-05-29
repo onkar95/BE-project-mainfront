@@ -6,6 +6,7 @@ export const ProfileDataProvider = ({ children }) => {
     let [selectedSkills, setSelectedSkills] = useState([])
     let [selectedRoles, setSelectedRoles] = useState([])
     const [PrimaryRole, setPrimaryRole] = useState('')
+    const [selectedDropdownVal, setSelectedDropdownVal] = useState('select')
 
     const [EmployeeSize, setEmployeeSize] = useState()
     const [Locations, setLocations] = useState("")
@@ -93,6 +94,7 @@ export const ProfileDataProvider = ({ children }) => {
             SalaryRange, setSalaryRange,
             TypeOfJobs, setTypeOfJobs,
             selected, setSelected,
+            selectedDropdownVal, setSelectedDropdownVal
         }}>
             {children}
         </ProfileContext.Provider >

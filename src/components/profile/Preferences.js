@@ -11,29 +11,36 @@ import {
 } from "../data/DropdownData";
 import axios from "axios";
 import { BASE_URL } from "../util";
+import { UserContext } from "../../context";
 
 const Preferences = () => {
   const { EmployeeSize, Locations, remoteOffice, SalaryRange, TypeOfJobs } =
     useContext(ProfileContext);
+
+  const { user, Token } = useContext(UserContext);
+
   const handelSave = () => {
     const dataobj = {
-      EmployeeSize,
-      Locations,
-      remoteOffice,
-      SalaryRange,
-      TypeOfJobs,
+      job_seeking: remoteOffice,
+      job_type: TypeOfJobs,
+      job_location: Locations,
+      company_size: EmployeeSize,
+      desired_salary: SalaryRange,
+      user_id: user.id,
     };
     console.log(dataobj);
 
-    axios
-      .post(`${BASE_URL}/Education`)
+    const config = {
+      Headers: { "x-access-token": Token }
+    }
+    axios.post(`${BASE_URL}/api/profile/savepreferences`, dataobj, config)
       .then((res) => console.log(res))
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err.message))
   };
 
-//   const handleSkip = () => {
-//     move to the final profile
-//   };
+  //   const handleSkip = () => {
+  //     move to the final profile
+  //   };
 
   return (
     <div className="preferences">

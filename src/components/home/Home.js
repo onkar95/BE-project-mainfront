@@ -6,8 +6,10 @@ const Home = () => {
 
     return (
         <div>
+
             <MCQTest />
             <TestCardSection />
+
         </div>
     )
 }

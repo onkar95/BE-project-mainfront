@@ -16,7 +16,6 @@ export const MessageDataProvider = ({ children }) => {
     const { isLoading: loadingMessages, data: messages } = useQuery(['Message', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
             const token = localStorage.getItem('token');
-            console.log(token)
             const config = {
                 headers: { 'x-access-token': token }
             };
@@ -31,7 +30,6 @@ export const MessageDataProvider = ({ children }) => {
 
     const { isLoading: loadingMembers, data: members } = useQuery('Member', async () => {
         const token = localStorage.getItem('token');
-        console.log(token)
         const config = {
             headers: { 'x-access-token': token }
         };
