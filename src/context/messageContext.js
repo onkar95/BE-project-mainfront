@@ -12,30 +12,35 @@ export const MessageDataProvider = ({ children }) => {
 
     const [CurrentChatID, setCurrentChatID] = useState()
     const [mobileChatClicked, setMobileChatClicked] = useState(false)
-
     const { isLoading: loadingMessages, data: messages } = useQuery(['Message', CurrentChatID], async () => {
         if (CurrentChatID !== undefined) {
             const token = localStorage.getItem('token');
+            console.log(token)
             const config = {
                 headers: { 'x-access-token': token }
             };
 
-            const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
-            console.log("mess", response.data.response);
-            return response.data.response;
+            if (token) {
+                const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
+                console.log("mess", response.data.response);
+                return response.data.response;
+            }
         }
     });
 
     const { isLoading: loadingMembers, data: members } = useQuery('Member', async () => {
         const token = localStorage.getItem('token');
+        console.log(token)
         const config = {
             headers: { 'x-access-token': token }
         };
 
-        const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
-        console.log("mem", response.data.members);
-        setCurrentChatID(response.data.members[0]?._id);
-        return response.data.members;
+        if (token) {
+            const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
+            console.log("mem", response.data.members);
+            setCurrentChatID(response.data.members[0]?._id);
+            return response.data.members;
+        }
     });
 
     const [Members, setMembers] = useState(members);

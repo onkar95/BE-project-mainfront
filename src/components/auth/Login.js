@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Auth.css'
 import axios from 'axios'
@@ -10,21 +10,26 @@ const Login = () => {
     const [Email, setEmail] = useState()
     const [Password, setPassword] = useState()
     const { user, setUser, setToken } = useContext(UserContext)
-
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (user) {
+            return navigate('/home')
+        }
+    }, [])
     const handelSubmit = () => {
         const dataObjs = {
             email: Email,
             password: Password,
         }
         console.log(dataObjs)
-        if (!user) axios.post(`${BASE_URL}/auth/login`, dataObjs)
+        if (!user) axios.post(`${BASE_URL}/api/login`, dataObjs)
             .then((data) => {
                 console.log(data)
                 setUser(data.data.user)
                 setToken(data.data.token)
                 localStorage.setItem('token', data.data.token)
-                navigate('/')
+                navigate('/home')
             })
             .catch((err) => {
                 console.log(err.response.data)
@@ -33,7 +38,9 @@ const Login = () => {
     }
 
 
-
+    if (user) {
+        return navigate('/home')
+    }
     return (
         <div className='login'>
             <div className='login_info'>

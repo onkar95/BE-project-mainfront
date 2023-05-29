@@ -17,13 +17,14 @@ const Register = () => {
     };
     const handelSubmit = () => {
         const dataObjs = {
-            name: Name,
+            username: Name,
             email: Email,
             password: Password,
             Role
         }
+
         console.log(dataObjs)
-        axios.post(`${BASE_URL}/auth/register`, dataObjs)
+        axios.post(`${BASE_URL}/api/signup`, dataObjs)
             .then((data) => {
                 console.log(data)
                 alert("registered succesfully")
@@ -51,8 +52,7 @@ const Register = () => {
                         <label className='label'>Enter Your name</label>
                         <input className='input' type="text" value={Name} onChange={(a) => setName(a.target.value)} />
                     </section>
-                    <section className='btn_group'>
-
+                    {/* <section className='btn_group'>
                         <label className='label' style={{ marginBottom: "8px" }} >What Are You Looking For?</label>
                         <ToggleButtonGroup
                             color="primary"
@@ -66,13 +66,7 @@ const Register = () => {
                             <ToggleButton className='b1 gp_btn' value="candidate" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking for Job</ToggleButton>
                             <ToggleButton className='b2 gp_btn' value="company" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking to heir</ToggleButton>
                         </ToggleButtonGroup>
-
-                        {/* <div className='btn_group_btns'>
-
-                            <button className='b1 gp_btn' onClick={() => setRole("candidate")}>I am looking for Job</button>
-                            <button className='b2 gp_btn' onClick={() => setRole("company")}>I am looking to heir</button>
-                        </div> */}
-                    </section>
+                    </section> */}
                     <section>
                         <label className='label'>Enter Your email</label>
                         <input className='input' type="email" value={Email}

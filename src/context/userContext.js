@@ -7,19 +7,25 @@ export const UserContext = createContext(null)
 export const UserDataProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [Token, setToken] = useState(0);
+    const [VerifyLoading, setVerifyLoading] = useState(false);
+
     console.log(user)
     useEffect(() => {
         async function userToken(params) {
             const token = localStorage.getItem('token')
-            setToken(token)
-            const confg = {
-                headers: { "x-access-token": token }
+            if (token) {
+                setVerifyLoading(true)
+                setToken(token)
+                const confg = {
+                    headers: { "x-access-token": token }
+                }
+                axios.get(`${BASE_URL}/auth/verifyuser`, confg)
+                    .then((res) => {
+                        setUser(res.data.user)
+                        setVerifyLoading(false)
+                    })
+                    .catch((err) => console.log(err))
             }
-            axios.get(`${BASE_URL}/auth/verifyuser`, confg)
-                .then((res) => {
-                    setUser(res.data.user)
-                })
-                .catch((err) => console.log(err))
         }
         userToken()
     }, [])
