@@ -4,10 +4,13 @@ import img from '../../Assets/img.jpg'
 import notification from '../../Assets/icons/noticon.png'
 import { useNavigate } from 'react-router-dom'
 import { DashboardContest, UserContext } from '../../context'
+import { useState } from 'react'
+import CustomDropdown from './CustomDropdown'
 
 const Header = () => {
     const { user } = useContext(UserContext)
     const { setSection, innerWidth, sideBarToggel, setSideBarToggel } = useContext(DashboardContest)
+
     const navigate = useNavigate()
     const handelClick = (val, route) => {
         sessionStorage.setItem('currentsection', val)
@@ -18,6 +21,7 @@ const Header = () => {
     const handelSiderbar = () => {
         setSideBarToggel(!sideBarToggel)
     }
+
 
     const handelLogOut = () => {
         localStorage.removeItem('token')
@@ -44,13 +48,20 @@ const Header = () => {
                     <div className='header_right'>
                         <img className='noti_img' src={notification} alt="notification" />
                         {user ?
-                            <>
-                                <img className='profile_img' src={img} alt="profile" />
-                                <div className='profile_Dropdown'>
-                                    <button onClick={() => navigate('/myProfile')}>My Profile</button>
-                                    <button onClick={() => handelLogOut()}>Logout</button>
-                                </div>
-                            </> :
+                            // <div className='profile_nav'>
+                            //     <img className='profile_img' src={img} alt="profile" />
+                            //     <div className='profile_Dropdown'>
+                            //         <button onClick={() => navigate('/myProfile')}>My Profile</button>
+                            //         <button onClick={() => handelLogOut()}>Logout</button>
+                            //     </div>
+                            // </div> 
+                            // <CustomDropdown />
+                            <div>
+                                <button className='btn_1' onClick={() => handelLogOut()}>Logout</button>
+                                {/* <button className='btn_2' onClick={() => navigate('/register')}>signin</button> */}
+                            </div>
+
+                            :
                             <div>
                                 <button className='btn_1' onClick={() => navigate('/login')}>signup</button>
                                 {/* <button className='btn_2' onClick={() => navigate('/register')}>signin</button> */}

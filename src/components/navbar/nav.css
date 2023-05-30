@@ -124,12 +124,47 @@
     display: block;
 }
 
-.profile_Dropdown {
-    display: none;
+/* nav.css */
+
+/* Styles for the profile image */
+.profile_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.profile_Dropdown:hover {
+/* Styles for the dropdown menu */
+.dropdown-menu {
+    min-width: 150px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the dropdown items */
+.dropdown-item {
     display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-item button:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 400px) {

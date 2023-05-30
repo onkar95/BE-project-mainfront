@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
+import { AssignmentContext, UserContext } from '../../context'
+import { BASE_URL } from '../util'
 import TestCard from './TestCard'
+import axios from 'axios'
 
 const test = {
     test_id: '12345',
@@ -10,6 +13,27 @@ const test = {
 
 }
 const MCQTest = () => {
+
+    const { Token } = useContext(UserContext)
+    const { McqQuestions, setMcqQuestions } = useContext(AssignmentContext)
+
+    const getQuestions = () => {
+        const config = {
+            Headers: { "x-access-token": Token }
+        }
+        axios.get(`${BASE_URL}/api/questions/allquestions`, config)
+            .then((res) => {
+                console.log(res.data)
+                setMcqQuestions(res.data.data)
+                // window.open(`${test.assignment_url}`, '_blank')
+            })
+            .catch((err) => console.log(err.message))
+
+    }
+    useEffect(() => {
+        getQuestions()
+    }, [])
+
     return (
         <div>
             <h1 className="test-card-section-heading"> General MCQ Test</h1>
