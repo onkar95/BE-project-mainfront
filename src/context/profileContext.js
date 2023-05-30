@@ -14,6 +14,10 @@ export const ProfileDataProvider = ({ children }) => {
     const [SalaryRange, setSalaryRange] = useState('')
     const [TypeOfJobs, setTypeOfJobs] = useState('')
 
+    const [userProfile, setuserProfile] = useState()
+
+    const [EditFlag, setEditFlag] = useState(false)
+
     const [selected, setSelected] = useState(0);
 
 
@@ -94,7 +98,9 @@ export const ProfileDataProvider = ({ children }) => {
             SalaryRange, setSalaryRange,
             TypeOfJobs, setTypeOfJobs,
             selected, setSelected,
-            selectedDropdownVal, setSelectedDropdownVal
+            selectedDropdownVal, setSelectedDropdownVal,
+            EditFlag, setEditFlag,
+            userProfile, setuserProfile
         }}>
             {children}
         </ProfileContext.Provider >

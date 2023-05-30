@@ -12,6 +12,7 @@ import Main from './layout/Main';
 import Auth from './layout/Auth';
 import MobileMessages from './components/Messages/MobileMessages';
 import TakeHomeAssignment from './components/home/take_home_assignment/TakeHomeAssignment';
+import ProfileScreen from './components/profile/profileDetail/ProfileScreen';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
                     <Route path="/messages" element={<Main Component={Message} />} />
                     <Route path="/chat/:id" element={<Main Component={MobileMessages} />} />
                     <Route path='/take-home' element={<Auth Component={TakeHomeAssignment} />} />
-                    {/* <Route path='/take-home' element={<TakeHomeAssignment />} /> */}
+                    <Route path='/profiledetail' element={<Main Component={ProfileScreen} />} />
                   </Routes>
                 </Router>
               </MessageDataProvider>

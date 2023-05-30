@@ -1,3 +1,14 @@
+.edit_profile {
+    display: flex;
+    width: 80%;
+    align-items: baseline;
+}
+
+.profile-container {
+    width: 80%;
+    padding: 20px 0;
+}
+
 .profile {
     display: flex;
     flex-direction: column;

@@ -50,7 +50,7 @@ const Sidebar = () => {
                             <img className='side_nav_img' src={homeicon} alt='logo' />
                             <h3>Home</h3>
                         </button>
-                        <button onClick={() => handelClick(1, '/profile')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
+                        <button onClick={() => handelClick(1, '/profiledetail')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
                             <img className='side_nav_img' src={profile} alt='logo' />
                             <h3>Profile</h3>
                         </button>
@@ -71,7 +71,7 @@ const Sidebar = () => {
                             <img className='side_nav_img' src={homeicon} alt='logo' />
                             <h3>Home</h3>
                         </button>
-                        <button onClick={() => handelClick(1, '/profile')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
+                        <button onClick={() => handelClick(1, '/profiledetail')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
                             <img className='side_nav_img' src={profile} alt='logo' />
                             <h3>Profile</h3>
                         </button>
