@@ -22,7 +22,7 @@ const TakeHomeAssignment = () => {
 
     const dataObj = {
       student_id: user.id,
-      assignment_id: test.id,
+      assignment_id: test.assignment_id,
       assignment_started_date: actualDate
     }
     console.log(dataObj)
@@ -45,20 +45,24 @@ const TakeHomeAssignment = () => {
   };
 
   const handleUpload = () => {
-    //makes a post call to the api for downloading the assignment zip.
-    console.log(answerLink);
-    // const THA_URL = 'localhost:5000';
+    const actualDate = new Date(Date.now());
+    const dataObj = {
+      student_id: user.id,
+      assignment_id: test.assignment_id,
+      submission_url: answerLink
+    }
+    console.log(dataObj)
 
-    // axios.post(THA_URL, {
-    //   testId: test.id,
-    // })
-    // .then(function (response) {
-    //   //save the zip file to the downloads folder
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    const config = {
+      Headers: { "x-access-token": Token }
+    }
+    axios.post(`${BASE_URL}/api/assignment/upload`, dataObj, config)
+      .then((res) => {
+        console.log(res.data)
+        // window.open(`${test.assignment_url}`, '_blank')
+      })
+      .catch((err) => console.log(err.message))
+
   }
 
   console.log("first", VerifyLoading)
