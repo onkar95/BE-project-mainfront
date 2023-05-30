@@ -3,8 +3,8 @@ import TestCard from './TestCard'
 
 const test = {
     test_id: '12345',
-    title: "Basic MCQ test",
-    description: "This is the first test This is the first test This is the first test This is the first test",
+    assignment_name: "Basic MCQ test",
+    description: "This is the basic MCQ test based on general Aptitude questions",
     time: "60 mins",
     level: "easy",
 

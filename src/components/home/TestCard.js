@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function TestCard({ test, testLevel }) {
   return (
     <div className="test-card">
-      <h2 id="test-card-heading">{test.title}</h2>
+      <h2 id="test-card-heading">{test.assignment_name}</h2>
       <p id="test-card-metadata">
-        ⌛ {test.time} 🔥 {test.level}
+        ⌛3 Days {test.time} 🔥 {test.assignment_level}
       </p>
       <p id="test-card-description">{test.description}</p>
       <div id="test-card-btn-container">

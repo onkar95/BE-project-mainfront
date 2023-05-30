@@ -20,7 +20,6 @@ const Login = () => {
         console.log(dataObjs)
         if (!user) axios.post(`${BASE_URL}/api/login`, dataObjs)
             .then((data) => {
-                console.log(data)
                 setUser(data.data.user)
                 setToken(data.data.token)
                 localStorage.setItem('token', data.data.token)

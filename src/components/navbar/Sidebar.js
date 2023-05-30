@@ -19,7 +19,6 @@ const Sidebar = () => {
         navigate(route)
     }
 
-    console.log(sideBarToggel)
     const sidebarRef = useRef(null);
 
     useEffect(() => {

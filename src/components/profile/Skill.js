@@ -14,7 +14,7 @@ const Skill = () => {
     useContext(ProfileContext);
   const { setSelected, setSelectedDropdownVal } = useContext(ProfileContext);
   const { user, Token } = useContext(UserContext);
-  const handleSkip = () => {
+  const handleNext = () => {
     setSelected(1);
   };
 
@@ -85,8 +85,8 @@ const Skill = () => {
         ))}
       </div>
       <div className="skills_btn">
-        <button className="btn_1" onClick={() => handleSkip()}>
-          Skip
+        <button className="btn_1" onClick={() => handleNext()}>
+          Next
         </button>
         <button className="btn_2" onClick={() => handelSave()}>
           Save

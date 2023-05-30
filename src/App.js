@@ -7,38 +7,40 @@ import Profile from './components/profile/Profile';
 import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
 import Message from './components/Messages/Message';
-import TakeHomeAssignment from './screen/take_home_assignment/TakeHomeAssignment';
-import { DashboardDataProvider, MessageDataProvider, ProfileDataProvider, UserDataProvider } from './context';
+import { AssignmentDataProvider, DashboardDataProvider, MessageDataProvider, ProfileDataProvider, UserDataProvider } from './context';
 import Main from './layout/Main';
 import Auth from './layout/Auth';
 import MobileMessages from './components/Messages/MobileMessages';
+import TakeHomeAssignment from './components/home/take_home_assignment/TakeHomeAssignment';
 
 
 function App() {
   return (
     <>
       <UserDataProvider>
-        <DashboardDataProvider>
-          <ProfileDataProvider>
-            <MessageDataProvider>
+        <AssignmentDataProvider>
+          <DashboardDataProvider>
+            <ProfileDataProvider>
+              <MessageDataProvider>
 
-              <Router>
-                <Routes>
-                  <Route path="/login" element={<Auth Component={Login} />} />
-                  <Route path="/register" element={<Auth Component={Register} />} />
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/home" element={<Main Component={Home} />} />
-                  <Route path="/job" element={<Main Component={Jobs} />} />
-                  <Route path="/profile" element={<Main Component={Profile} />} />
-                  <Route path="/messages" element={<Main Component={Message} />} />
-                  <Route path="/chat/:id" element={<Main Component={MobileMessages} />} />
-                  <Route path='/take-home' element={<Auth Component={TakeHomeAssignment} />} />
-                  {/* <Route path='/take-home' element={<TakeHomeAssignment />} /> */}
-                </Routes>
-              </Router>
-            </MessageDataProvider>
-          </ProfileDataProvider>
-        </DashboardDataProvider>
+                <Router>
+                  <Routes>
+                    <Route path="/login" element={<Auth Component={Login} />} />
+                    <Route path="/register" element={<Auth Component={Register} />} />
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/home" element={<Main Component={Home} />} />
+                    <Route path="/job" element={<Main Component={Jobs} />} />
+                    <Route path="/profile" element={<Main Component={Profile} />} />
+                    <Route path="/messages" element={<Main Component={Message} />} />
+                    <Route path="/chat/:id" element={<Main Component={MobileMessages} />} />
+                    <Route path='/take-home' element={<Auth Component={TakeHomeAssignment} />} />
+                    {/* <Route path='/take-home' element={<TakeHomeAssignment />} /> */}
+                  </Routes>
+                </Router>
+              </MessageDataProvider>
+            </ProfileDataProvider>
+          </DashboardDataProvider>
+        </AssignmentDataProvider>
       </UserDataProvider>
     </ >
   );

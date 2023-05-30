@@ -1,36 +1,42 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-
-// import axios from 'axios'
-
+import React, { useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context";
+import Loading from "../../utils/Loader/Loading";
 import './takehomeassignment.css'
-import downloadIcon from '../../Assets/icons/download5.png'
-import uploadIcon from '../../Assets/icons/upload5.png'
-import { useContext } from "react";
-import { UserContext } from "../../context";
-import Loading from "../../components/utils/Loader/Loading";
+import downloadIcon from '../../../Assets/icons/download5.png'
+import uploadIcon from '../../../Assets/icons/upload5.png'
+import axios from 'axios'
+import { BASE_URL } from "../../util";
 
 const TakeHomeAssignment = () => {
   let { state } = useLocation();
   const [answerLink, setAnswerLink] = useState('');
-  const { VerifyLoading } = useContext(UserContext)
+  const { Token, user, VerifyLoading } = useContext(UserContext)
 
   const test = state.test;
   console.log(test)
-  const handleDownload = () => {
-    //makes a post call to the api for downloading the assignment zip.
-    // const THA_URL = 'localhost:5000';
+  const navigate = useNavigate()
 
-    // axios.post(THA_URL, {
-    //   testId: test.id,
-    // })
-    // .then(function (response) {
-    //   //save the zip file to the downloads folder
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+  const handleDownload = () => {
+    const actualDate = new Date(Date.now());
+
+    const dataObj = {
+      student_id: user.id,
+      assignment_id: test.id,
+      assignment_started_date: actualDate
+    }
+    console.log(dataObj)
+
+    const config = {
+      Headers: { "x-access-token": Token }
+    }
+    axios.post(`${BASE_URL}/api/assignment/download`, dataObj, config)
+      .then((res) => {
+        console.log(res.data)
+        window.open(`${test.assignment_url}`, '_blank')
+      })
+      .catch((err) => console.log(err.message))
+
   }
 
   const handleChange = (e) => {
@@ -54,16 +60,17 @@ const TakeHomeAssignment = () => {
     //   console.log(error);
     // });
   }
+
   console.log("first", VerifyLoading)
   return (
     <>
       {VerifyLoading ? <Loading /> :
         <div className="take-home-assignment-container">
           <div className="test-details-section">
-            <h2 id="test-details-heading">{test.title}</h2>
+            <h2 id="test-details-heading">{test.assignment_name}</h2>
             <p id="test-details-description">{test.description}</p>
             <p id="test-details-metadata">
-              ⌛ {test.time}   🔥 {test.level}
+              ⌛ 3 Days{test.time}   🔥 {test.assignment_level}
             </p>
           </div>
           <div className="test-process-section">

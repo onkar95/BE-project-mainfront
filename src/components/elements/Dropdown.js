@@ -5,7 +5,7 @@ import ProfileContext from '../../context/profileContext';
 const Dropdown = ({ data, type }) => {
 
 
-    const { handelAdd, selectedDropdownVal, setSelectedDropdownVal } = useContext(ProfileContext)
+    const { handelAdd } = useContext(ProfileContext)
 
     return (
         <select className='option' onChange={(a) => handelAdd(a, type)}>

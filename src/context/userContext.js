@@ -9,9 +9,8 @@ export const UserDataProvider = ({ children }) => {
     const [Token, setToken] = useState(0);
     const [VerifyLoading, setVerifyLoading] = useState(false);
 
-    console.log(user)
     useEffect(() => {
-        async function userToken(params) {
+        async function verifyUser(params) {
             const token = localStorage.getItem('token')
             if (token) {
                 setVerifyLoading(true)
@@ -26,12 +25,12 @@ export const UserDataProvider = ({ children }) => {
                         setVerifyLoading(false)
                     })
                     .catch((err) => {
-                        console.log(err)
+                        console.log(err.message)
                         setVerifyLoading(false)
                     })
             }
         }
-        userToken()
+        verifyUser()
     }, [])
 
 
