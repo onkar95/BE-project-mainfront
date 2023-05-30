@@ -18,6 +18,10 @@ const Header = () => {
     const handelSiderbar = () => {
         setSideBarToggel(!sideBarToggel)
     }
+
+    const handelLogOut = () => {
+        localStorage.removeItem('token')
+    }
     return (
         < >
             {innerWidth <= 800 ?
@@ -39,7 +43,14 @@ const Header = () => {
                     </div>
                     <div className='header_right'>
                         <img className='noti_img' src={notification} alt="notification" />
-                        {user ? <img className='profile_img' src={img} alt="profile" /> :
+                        {user ?
+                            <>
+                                <img className='profile_img' src={img} alt="profile" />
+                                <div className='profile_Dropdown'>
+                                    <button onClick={() => navigate('/myProfile')}>My Profile</button>
+                                    <button onClick={() => handelLogOut()}>Logout</button>
+                                </div>
+                            </> :
                             <div>
                                 <button className='btn_1' onClick={() => navigate('/login')}>signup</button>
                                 {/* <button className='btn_2' onClick={() => navigate('/register')}>signin</button> */}

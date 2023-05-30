@@ -124,6 +124,14 @@
     display: block;
 }
 
+.profile_Dropdown {
+    display: none;
+}
+
+.profile_Dropdown:hover {
+    display: flex;
+}
+
 @media (max-width: 400px) {
     .collapse_sidebar {
         width: 140px;
