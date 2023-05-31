@@ -55,10 +55,10 @@ const Education = () => {
                 <label className='label'>Start Date and End Date</label>
                 <div className='date_inp'>
                     <input className='input date' type='date' value={DateFrom} onChange={(a) => setDateFrom(a.target.value)} max={DateTo} />
-                    <input className='input date' type='date' value={DateTo} onChange={(a) => setDateTo(a.target.value)} max={dateToday} min={DateFrom} />
+                    <input className='input date' type='date' value={DateTo} onChange={(a) => setDateTo(a.target.value)} min={DateFrom} />
                 </div>
             </div>
-            {/* <div className='form_itm' >
+            {/* <div className='form_itm' max={dateToday}>
                 <label className='label'>Enter Job Description</label>
                 <input className='input' type='text' value={Description} onChange={((a) => setDescription(a.target.value))} />
             </div> */}

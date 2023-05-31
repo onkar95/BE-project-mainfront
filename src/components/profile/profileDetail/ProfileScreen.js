@@ -48,7 +48,7 @@ const ProfileScreen = () => {
     getuserProfile()
     // eslint-disable-next-line
   }, [])
-
+  console.log(userProfile?.skill)
   // return (
   //   <div className="profile-container">
   //     <div className="profile-container-header">
@@ -109,65 +109,72 @@ const ProfileScreen = () => {
   //     </div>
   //   </div>
   // );
+
   return (
     <>
       {isLoading ?
         <Loading /> :
-        <div className="profile-container">
-          <div className="profile-container-header">
-            <div className="profile-container-header-action" onClick={() => ShowEdit()}>
-              <EditIcon sx={{ cursor: "pointer" }} />
-            </div>
-          </div>
-          <div className="profile-container-section-1">
-            <div className="personal-profile-container">
-              <img className="profile-picture" src={profileImg} alt="profile-pic" />
-              <p className="profile-name">{userProfile?.username}</p>
-              <p className="profile-bio">
-                I am an enthusiastic developer. I treat my work with utmost
-                devotion. I am always looking to learn new things and improve my
-                skills.
-              </p>
-            </div>
-            <div className="preferences-container">
-              <div className="preferences-header">
-                <p className="preferences-heading">Preferences</p>
+        userProfile?.skill === null ?
+          <div className="empty_profile">
+            <div> <h2>Complete your profile first to procced</h2></div>
+            <div onClick={() => ShowEdit()}> <EditIcon sx={{ cursor: "pointer" }} /></div>
+
+          </div> :
+          <div className="profile-container">
+            <div className="profile-container-header">
+              <div className="profile-container-header-action" onClick={() => ShowEdit()}>
+                <EditIcon sx={{ cursor: "pointer" }} />
               </div>
-              <div className="preference-listview">
-                <PreferenceTile {...userProfile} />
-                {/* {mockPreferenceTileList.map((item) => (
+            </div>
+            <div className="profile-container-section-1">
+              <div className="personal-profile-container">
+                <img className="profile-picture" src={profileImg} alt="profile-pic" />
+                <p className="profile-name">{userProfile?.username}</p>
+                <p className="profile-bio">
+                  I am an enthusiastic developer. I treat my work with utmost
+                  devotion. I am always looking to learn new things and improve my
+                  skills.
+                </p>
+              </div>
+              <div className="preferences-container">
+                <div className="preferences-header">
+                  <p className="preferences-heading">Preferences</p>
+                </div>
+                <div className="preference-listview">
+                  <PreferenceTile {...userProfile} />
+                  {/* {mockPreferenceTileList.map((item) => (
                 ))} */}
-              </div>
-            </div>
-          </div>
-
-          <div className="profile-container-section-2">
-            <div className="profile-badges-container">
-              <p className="profile-labels">Badges</p>
-              <div className="profile-badges-listview-container">
-                <div className="profile-badges-listview">
-                  {!userProfile?.badge_list ||
-
-                    userProfile?.badge_list.length === 0 ? <div> No badges Assigned</div>
-                    :
-                    userProfile?.badge_list.map((item, index) => (
-                      <BadgesCertificate item={item} index={index} />
-                    ))}
                 </div>
               </div>
             </div>
-          </div>
-          {userProfile?.company_name ?
-            <div className="profile-experience-container">
-              <p className="profile-labels">Experience</p>
-              <div className="profile-education-listview">
-                <ExperienceCard {...userProfile} />
-                {/* {mockExperienceList.map((item) => (
-          ))} */}
-              </div>
-            </div> : ""}
 
-          {/* <div className="profile-education-container">
+            <div className="profile-container-section-2">
+              <div className="profile-badges-container">
+                <p className="profile-labels">Badges</p>
+                <div className="profile-badges-listview-container">
+                  <div className="profile-badges-listview">
+                    {!userProfile?.badge_list ||
+
+                      userProfile?.badge_list.length === 0 ? <div> No badges Assigned</div>
+                      :
+                      userProfile?.badge_list.map((item, index) => (
+                        <BadgesCertificate item={item} index={index} />
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {userProfile?.company_name ?
+              <div className="profile-experience-container">
+                <p className="profile-labels">Experience</p>
+                <div className="profile-education-listview">
+                  <ExperienceCard {...userProfile} />
+                  {/* {mockExperienceList.map((item) => (
+          ))} */}
+                </div>
+              </div> : ""}
+
+            {/* <div className="profile-education-container">
         <p className="profile-labels">Education</p>
         <div className="profile-education-listview">
           {mockEducationList.map((item) => (
@@ -175,7 +182,7 @@ const ProfileScreen = () => {
           ))}
         </div>
       </div> */}
-        </div>
+          </div>
       }
     </>
 
@@ -246,7 +253,7 @@ const ExperienceCard = ({
           <p className="education-card-date">{start_date} </p>~
           <p className="education-card-date"> {end_date}</p>
         </div>
-        <p className="education-card-description">{job_description}</p>
+        <p className="education-card-description">{job_description.slice(0, 100)}..</p>
       </div>
     </div>
   );

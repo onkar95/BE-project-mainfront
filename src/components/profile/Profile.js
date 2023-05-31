@@ -5,23 +5,51 @@ import Preferences from './Preferences'
 import Skill from './Skill'
 import './profile.css'
 import { useContext } from 'react'
-import ProfileContext from '../../context/profileContext'
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import './profileDetail/profile.css'
+import { ProfileContext, UserContext } from '../../context'
+import { useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../util'
+import { useEffect } from 'react'
 
 const Profile = () => {
-    const { selected, setSelected } = useContext(ProfileContext);
+    const { selected, setSelected, userProfile, setuserProfile } = useContext(ProfileContext);
     const handelClick = (val) => {
         setSelected(val)
     }
+    console.log("userProfile", userProfile)
     const navigate = useNavigate();
 
     const navigateBack = () => {
         navigate(-1);
     }
+    const { user, Token } = useContext(UserContext);
+    const [isLoading, setLoading] = useState(false)
 
 
+    const getuserProfile = () => {
+        const config = {
+            Headers: { "x-access-token": Token }
+        }
+        setLoading(true)
+        axios.post(`${BASE_URL}/api/profile/userdetailsbyid`, { userId: user?.id }, config)
+            .then((res) => {
+                setuserProfile(res.data.data)
+                console.log(res.data)
+                setLoading(false)
+            })
+            .catch((err) => {
+                setLoading(false)
+                console.log(err.message)
+            })
+    }
+
+    useEffect(() => {
+        getuserProfile()
+        // eslint-disable-next-line
+    }, [])
     return (
         <div className='edit_profile'>
             <div className="profile-container-header-title">

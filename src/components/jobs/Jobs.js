@@ -45,7 +45,7 @@ const Jobs = () => {
                         <h1 className="test-card-section-heading">Shortlisted jobs  </h1>
                         <div></div>
                         {jobs?.length === 0 ?
-                            <div> No jobs to show</div> :
+                            <div className='empty_jobs'><h3> No jobs to show</h3> </div> :
                             <div className="job-postings-content">
                                 <JobPostingsContent jobPostingsFlag={activeFlag} />
                             </div>}
