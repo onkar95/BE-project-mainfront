@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import mockActiveJobsList from '../data/mockActiveJobsList'
 import axios from "axios"
 import { useEffect } from 'react'
 import { useContext } from 'react'
@@ -10,8 +9,8 @@ import { BASE_URL } from '../util'
 import Loading from '../utils/Loader/Loading'
 
 const Jobs = () => {
-    const { user, Token } = useContext(UserContext)
-    const [activeFlag, setActiveFlag] = useState(true);
+    const { user } = useContext(UserContext)
+    const [activeFlag] = useState(true);
     const { jobs, setjobs, jobsLoading, setjobsLoading } = useContext(JobContext)
 
     useEffect(() => {
@@ -30,6 +29,7 @@ const Jobs = () => {
                 })
         }
         getShortlistedJobd()
+        // eslint-disable-next-line
     }, [])
 
 

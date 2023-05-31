@@ -1,17 +1,12 @@
 import React from "react";
 import "./profile.css";
 
-import mockBadgesList from "../../data/mockBadgesList";
-import mockPreferenceTileList from "../../data/mockPreferenceTileList";
-import mockEducationList from "../../data/mockEducationList";
-import mockExperienceList from "../../data/mockExperienceList";
 
 import goldBadgeIcon from "../../../Assets/icons/gold_badge.png";
 import defaultCompanyImg from "../../../Assets/companyimg.png";
 import profileImg from "../../../Assets/femaleprofile.png";
 
 import EditIcon from "@mui/icons-material/Edit";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { BASE_URL } from "../../util";
@@ -51,6 +46,7 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     getuserProfile()
+    // eslint-disable-next-line
   }, [])
 
   // return (
@@ -170,6 +166,7 @@ const ProfileScreen = () => {
           ))} */}
               </div>
             </div> : ""}
+
           {/* <div className="profile-education-container">
         <p className="profile-labels">Education</p>
         <div className="profile-education-listview">
@@ -224,25 +221,7 @@ const PreferenceTile = ({ job_seeking, job_location, company_size, desired_salar
   );
 };
 
-const EducationCard = ({
-  course,
-  university,
-  startdate,
-  enddate,
-  description,
-}) => {
-  return (
-    <div className="education-card">
-      <p className="education-heading">{course}</p>
-      <p className="education-card-university">{university}</p>
-      <div className="education-card-date-container">
-        <p className="education-card-date">{startdate}</p>
-        <p className="education-card-date">{enddate}</p>
-      </div>
-      <p className="education-card-description">{description}</p>
-    </div>
-  );
-};
+
 
 const ExperienceCard = ({
   job_title,

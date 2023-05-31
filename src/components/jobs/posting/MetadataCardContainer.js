@@ -4,11 +4,7 @@ import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalance
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 const MetadataCardContainer = ({ job }) => {
-  const skills = [
-    "Android",
-    "Java",
-    "React"
-  ];
+
   console.log("okok", job)
 
   return (

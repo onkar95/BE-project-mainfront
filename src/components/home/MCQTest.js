@@ -15,23 +15,25 @@ const test = {
 const MCQTest = () => {
 
     const { Token } = useContext(UserContext)
-    const { McqQuestions, setMcqQuestions } = useContext(AssignmentContext)
+    const { setMcqQuestions } = useContext(AssignmentContext)
 
-    const getQuestions = () => {
-        const config = {
-            Headers: { "x-access-token": Token }
-        }
-        axios.get(`${BASE_URL}/api/questions/allquestions`, config)
-            .then((res) => {
-                console.log(res.data)
-                setMcqQuestions(res.data.data)
-                // window.open(`${test.assignment_url}`, '_blank')
-            })
-            .catch((err) => console.log(err.message))
 
-    }
     useEffect(() => {
+        const getQuestions = () => {
+            const config = {
+                Headers: { "x-access-token": Token }
+            }
+            axios.get(`${BASE_URL}/api/questions/allquestions`, config)
+                .then((res) => {
+                    console.log(res.data)
+                    setMcqQuestions(res.data.data)
+                    // window.open(`${test.assignment_url}`, '_blank')
+                })
+                .catch((err) => console.log(err.message))
+
+        }
         getQuestions()
+        // eslint-disable-next-line
     }, [])
 
     return (

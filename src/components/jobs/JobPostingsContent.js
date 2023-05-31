@@ -4,7 +4,7 @@ import JobPostingsCard from "./JobPostingCard";
 import { JobContext } from "../../context";
 
 const JobPostingsContent = ({ jobPostingsFlag }) => {
-  const { jobs, setjobs, } = useContext(JobContext)
+  const { jobs } = useContext(JobContext)
   console.log(jobs)
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { UserContext } from "../../../context";
 import Loading from "../../utils/Loader/Loading";
 import './takehomeassignment.css'
@@ -15,7 +15,6 @@ const TakeHomeAssignment = () => {
 
   const test = state.test;
   console.log(test)
-  const navigate = useNavigate()
 
   const handleDownload = () => {
     const actualDate = new Date(Date.now());
@@ -45,7 +44,6 @@ const TakeHomeAssignment = () => {
   };
 
   const handleUpload = () => {
-    const actualDate = new Date(Date.now());
     const dataObj = {
       student_id: user.id,
       assignment_id: test.assignment_id,

@@ -1,5 +1,4 @@
 import React from "react";
-import { testData } from "../data/testData";
 import TestCard from "./TestCard";
 import './home.css'
 import axios from 'axios'
@@ -10,31 +9,32 @@ import { useEffect } from "react";
 import Loading from "../utils/Loader/Loading";
 //a dummy list of exams which will be populated using the backend
 // in the future.
-const tests = testData;
 
 function TestCardSection() {
-  const { user, Token } = useContext(UserContext);
+  const { Token } = useContext(UserContext);
   const { TakeHomeAssignments, setTakeHomeAssignments, assignmentLoading, setassignmentLoading } = useContext(AssignmentContext);
 
-  const getAssignments = () => {
-    const config = {
-      Headers: { "x-access-token": Token }
-    }
-    setassignmentLoading(true)
-    axios.get(`${BASE_URL}/api/assignment/getassignments`, config)
-      .then((res) => {
-        setassignmentLoading(false)
-        console.log(res.data)
-        setTakeHomeAssignments(res.data.assignments)
-      })
-      .catch((err) => {
-        setassignmentLoading(false)
-        console.log(err.message)
-      })
-  }
+
 
   useEffect(() => {
+    const getAssignments = () => {
+      const config = {
+        Headers: { "x-access-token": Token }
+      }
+      setassignmentLoading(true)
+      axios.get(`${BASE_URL}/api/assignment/getassignments`, config)
+        .then((res) => {
+          setassignmentLoading(false)
+          console.log(res.data)
+          setTakeHomeAssignments(res.data.assignments)
+        })
+        .catch((err) => {
+          setassignmentLoading(false)
+          console.log(err.message)
+        })
+    }
     getAssignments()
+    // eslint-disable-next-line
   }, [])
 
 

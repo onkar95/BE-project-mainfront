@@ -6,14 +6,12 @@ import Skill from './Skill'
 import './profile.css'
 import { useContext } from 'react'
 import ProfileContext from '../../context/profileContext'
-import ProfileScreen from './profileDetail/ProfileScreen'
-import EditIcon from "@mui/icons-material/Edit";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import './profileDetail/profile.css'
 
 const Profile = () => {
-    const { selected, setSelected, EditFlag, setEditFlag } = useContext(ProfileContext);
+    const { selected, setSelected } = useContext(ProfileContext);
     const handelClick = (val) => {
         setSelected(val)
     }

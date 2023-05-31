@@ -34,7 +34,7 @@ const PostingDetail = () => {
     }
 
     getJobDetail()
-
+    // eslint-disable-next-line
   }, [])
 
 

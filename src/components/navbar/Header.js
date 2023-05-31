@@ -4,8 +4,6 @@ import img from '../../Assets/img.jpg'
 import notification from '../../Assets/icons/noticon.png'
 import { useNavigate } from 'react-router-dom'
 import { DashboardContest, UserContext } from '../../context'
-import { useState } from 'react'
-import CustomDropdown from './CustomDropdown'
 
 const Header = () => {
     const { user } = useContext(UserContext)
@@ -25,6 +23,7 @@ const Header = () => {
 
     const handelLogOut = () => {
         localStorage.removeItem('token')
+        navigate('/')
     }
     return (
         < >
