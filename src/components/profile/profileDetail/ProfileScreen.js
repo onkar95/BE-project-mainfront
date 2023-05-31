@@ -138,9 +138,9 @@ const ProfileScreen = () => {
                 <p className="preferences-heading">Preferences</p>
               </div>
               <div className="preference-listview">
-                {mockPreferenceTileList.map((item) => (
-                  <PreferenceTile {...item} />
-                ))}
+                <PreferenceTile {...userProfile} />
+                {/* {mockPreferenceTileList.map((item) => (
+                ))} */}
               </div>
             </div>
           </div>
@@ -197,14 +197,30 @@ const BadgesCertificate = ({ item, index }) => {
   );
 };
 
-const PreferenceTile = ({ label, value }) => {
+const PreferenceTile = ({ job_seeking, job_location, company_size, desired_salary, willing_role }) => {
   return (
-    <div className="preference-tile-card">
-      {/* {mockPreferenceTileList.map((item) => (
-            ))} */}
-      <p className="preference-tile-label">{label}</p>
-      <p className="preference-tile-value">{value}</p>
-    </div>
+    <>
+      <div className="preference-tile-card">
+        <p className="preference-tile-label">What Type of Job are you seeking?</p>
+        <p className="preference-tile-value">{job_seeking}</p>
+      </div>
+      <div className="preference-tile-card">
+        <p className="preference-tile-label">What locations do you want to work at ?</p>
+        <p className="preference-tile-value">{job_location}</p>
+      </div>
+      <div className="preference-tile-card">
+        <p className="preference-tile-label">What size of the companies you prefer most?</p>
+        <p className="preference-tile-value">{company_size}</p>
+      </div>
+      <div className="preference-tile-card">
+        <p className="preference-tile-label">What salary are you looking for?</p>
+        <p className="preference-tile-value">{desired_salary}</p>
+      </div>
+      <div className="preference-tile-card">
+        <p className="preference-tile-label">Which role you are willing to work for?</p>
+        <p className="preference-tile-value">{willing_role}</p>
+      </div>
+    </>
   );
 };
 
