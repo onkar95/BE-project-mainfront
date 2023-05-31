@@ -34,7 +34,7 @@ const Header = () => {
                     <button className='toggle_button' onClick={() => handelSiderbar()}> ok</button>
                     <div className='header_logo' onClick={() => handelClick(0, '/')}>
                         <img className='logo_img' src={img} alt="logo" />
-                        <p>UpLevel</p>
+                        <p className="logo-text">🚀 UpLevel</p>
                     </div>
                 </div>
 
@@ -42,8 +42,7 @@ const Header = () => {
                 <div className='header'>
 
                     <div className='header_logo' onClick={() => handelClick(0, '/')}>
-                        <img className='logo_img' src={img} alt="logo" />
-                        <p>UpLevel</p>
+                        <p className="logo-text">🚀 UpLevel</p>
                     </div>
                     <div className='header_right'>
                         <img className='noti_img' src={notification} alt="notification" />
