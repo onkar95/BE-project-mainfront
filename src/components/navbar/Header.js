@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { DashboardContest, UserContext } from '../../context'
 
 const Header = () => {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const { setSection, innerWidth, sideBarToggel, setSideBarToggel } = useContext(DashboardContest)
 
     const navigate = useNavigate()
@@ -23,6 +23,7 @@ const Header = () => {
 
     const handelLogOut = () => {
         localStorage.removeItem('token')
+        setUser()
         navigate('/')
     }
     return (
