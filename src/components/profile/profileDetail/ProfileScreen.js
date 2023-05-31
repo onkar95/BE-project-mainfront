@@ -155,7 +155,7 @@ const ProfileScreen = () => {
                   <div className="profile-badges-listview">
                     {!userProfile?.badge_list ||
 
-                      userProfile?.badge_list.length === 0 ? <div> No badges Assigned</div>
+                      userProfile?.badge_list.length === 0 ? <div> No badges Assigned yet to you  !! Take Assignments to get badges</div>
                       :
                       userProfile?.badge_list.map((item, index) => (
                         <BadgesCertificate item={item} index={index} />
@@ -222,7 +222,9 @@ const PreferenceTile = ({ job_seeking, job_location, company_size, desired_salar
       </div>
       <div className="preference-tile-card">
         <p className="preference-tile-label">Which role you are willing to work for?</p>
-        <p className="preference-tile-value">{willing_role}</p>
+        {willing_role.map((val) => (
+          <p className="preference-tile-value">{val}</p>
+        ))}
       </div>
     </>
   );

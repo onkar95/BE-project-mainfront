@@ -91,6 +91,9 @@
     font-size: 1.1em;
     font-weight: 300;
     margin: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
 }
 
 .preference-tile-value {
