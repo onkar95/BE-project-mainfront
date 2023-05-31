@@ -28,9 +28,8 @@ const Profile = () => {
         <div className='edit_profile'>
             <div className="profile-container-header-title">
                 <ArrowBackIcon sx={{ cursor: "pointer" }} onClick={navigateBack} />
-                {/* <p className="profile-heading">Profile</p> */}
             </div>
-            <div className='profile'>
+            < div className='profile' >
                 <div className='profile_nav'>
                     <button onClick={() => handelClick(0)}>Skills</button>
                     <button onClick={() => handelClick(1)}>Experience</button>
@@ -43,7 +42,7 @@ const Profile = () => {
                     {selected === 2 ? <Education /> : ""}
                     {selected === 3 ? <Preferences /> : ""}
                 </div>
-            </div>
+            </div >
 
         </div>
     )
