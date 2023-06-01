@@ -8,7 +8,7 @@ import ProfileContext from '../../context/profileContext';
 import { UserContext } from '../../context';
 
 const Education = () => {
-    const dateToday = new Date().toISOString().slice(0, 10);
+    // const dateToday = new Date().toISOString().slice(0, 10);
     const [Degree, setDegree] = useState('')
     const [College, setCollege] = useState('')
     const [DateFrom, setDateFrom] = useState(new Date().toISOString().slice(0, 10))
