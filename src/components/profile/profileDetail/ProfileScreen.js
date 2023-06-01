@@ -222,7 +222,7 @@ const PreferenceTile = ({ job_seeking, job_location, company_size, desired_salar
       </div>
       <div className="preference-tile-card">
         <p className="preference-tile-label">Which role you are willing to work for?</p>
-        {willing_role.map((val) => (
+        {willing_role?.map((val) => (
           <p className="preference-tile-value">{val}</p>
         ))}
       </div>
