@@ -42,7 +42,7 @@ const Jobs = () => {
 
                 : <div className="home-container">
                     <div className="job-postings-container">
-                        <h1 className="test-card-section-heading">Shortlisted jobs  </h1>
+                        <h3 className="test-card-section-heading">Jobs for you</h3>
                         <div></div>
                         {jobs?.length === 0 ?
                             <div className='empty_jobs'><h3> No jobs to show</h3> </div> :
